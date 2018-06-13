@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/element.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container clearfix">
+            <p class="left">
+                <a href="article_detail.html?typeid=1001">保单验证</a> |
+                <a href="article_detail.html?typeid=1002">信息披露</a> |
+                <a href="article_detail.html?typeid=1003">关于我们</a> |
+                <a href="article_detail.html?typeid=1004">联系我们</a>
+            </p>
+            <p class="right">
+            <a href="login.html">登陆</a> |
+            <a href="register.html">注册</a>
+            </p>
+        </div>
+    </div>
+    <div class="top-header">
+        <div class="container clearfix">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="" width="177" height="47" />
+            </a>
+            <ul class="header-nav">
+                <li><a class="on" target="_self" href="index.html">首 页</a></li>
+                <li><a target="_self" href="products_list.html">全部保险产品</a></li>
+                <li><a target="_self" href="claims.html">保险理赔</a></li>
+                <li><a target="_self" href="">企业团险</a></li>
+                <li><a target="_self" href="center_orders.html">我的保单</a></li>
+            </ul>
+            <div class="header-rnav right">
+<a href="private_custom.html">
+                <i class="i1"></i>
+                定制
+            </a>
+                <a href="">
+                    <i class="i2"></i>
+                    公众号
+                </a>
+            </div>
+        </div>
+    </div>
+
+<div id="appCtrl" v-loack>
+    <div class="container product-detail clearfix">
+        <div class="product-img">
+            <img src="images/23sdf.png" alt="" width="350" height="300" />
+        </div>
+        <div class="product-info clearfix">
+            <h2 class="title">飞天养老宝</h2>
+            <div class="choose-attrs">
+                <dl class="clearfix">
+                    <dt>保　　额：</dt>
+                    <dd>
+                        <a 
+                        href="javascript:;" 
+                        v-for="(el,index) in product"
+                        :key="index"
+                        @click="amountIndex=index" 
+                        :class="{on:amountIndex === index}">
+                            {{el.amount/10000}} 万
+                        </a>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>保障期限：</dt>
+                    <dd>一年</dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>年　　龄：</dt>
+                    <dd>
+                        <a 
+                        v-for="(el,index) in product[amountIndex].age"
+                        :key="index"
+                        @click="ageIndex=index"
+                        href="javascript:;"
+                        :class="{on:ageIndex === index}">
+                        {{el.scope}}</a>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>价　　格：</dt>
+                    <dd>
+                        <p class="product-info-price">
+                            {{product[amountIndex].age[ageIndex].price}} <sub class="cGray">元/年</sub>
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="choose-attrs-submit">
+                <a href="javascript:;" @click="submit">立即购买</a> 
+                <span class="cGray">已售 <span class="cGold">435345</span> 份</span>
+            </div>
+        </div>
+    </div>
+    <div class="container product-article">
+        <div class="product-tab-wrapper" id="stickyNav">
+             <div class="product-tab">
+                <ul>
+                    <li class="on">产品详情</li>
+                    <li>购买须知</li>
+                    <li>常见问题</li>
+                </ul>
+            </div>            
+        </div>
+
+        <div class="content">
+            <ul class="product-article-keys">
+                <li>
+                    <i class="i1"></i>
+                    5年长期保障，每年缴费不变，无停售风险
+                </li>
+                <li>
+                    <i class="i2"></i>
+                    5年总共1万免赔额，恶性肿瘤0免赔，理赔无压力
+                </li>
+                <li>
+                    <i class="i3"></i>
+                    住院、住院前7日后30日门急诊、特殊门诊均可报销
+                </li>
+                <li>
+                    <i class="i4"></i>
+                    保费最低180元起，平均每天0.5元
+                </li>
+            </ul>
+            <div class="table-info-wrapper">
+                <h2>保证责任明细</h2>
+                <table>
+                    <tr>
+                        <th>保险责任</th>
+                        <th>保障责任</th>
+                    </tr>
+                    <tr>
+                        <td>一般医疗保险金</td>
+                        <td>200万</td>
+                    </tr>
+                    <tr>
+                        <td>恶性肿瘤医疗保险金</td>
+                        <td>200万</td>
+                    </tr>
+                    <tr>
+                        <td>免赔额</td>
+                        <td>5年累计免赔额1万元，恶性肿瘤保障无免赔</td>
+                    </tr>
+                    <tr>
+                        <td>等待期</td>
+                        <td>60天</td>
+                    </tr>
+                    <tr>
+                        <td>犹豫期</td>
+                        <td>15天，犹豫期内全额退保</td>
+                    </tr>
+                    <tr>
+                        <td>赔付规则</td>
+                        <td>
+                    有社保版：保险赔付^〔医疗费-社保赔付-免赔额〉*100%<br>
+                    若有社保未使用：保险赔付^〔医疗费-免赔额〉*60%<br>
+                    无社保版：保险赔付二〔医疗费-免赔额〕*100%<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>医院范围</td>
+                        <td>二级及以上医保定点医院普通部</td>
+                    </tr>
+
+                    <tr>
+                        <td>保障期限</td>
+                        <td>5年</td>
+                    </tr>
+
+                    <tr>
+                        <td>缴费期限</td>
+                        <td>一次缴清0年交乃年交（每年缴费金额不变〉</td>
+                    </tr>
+
+                    <tr>
+                        <td>被保险人</td>
+                        <td>出生后满30天至49周岁，可续保至80周岁</td>
+                    </tr>
+
+                    <tr>
+                        <td>投被保险人关系</td>
+                        <td>限本人、父母、配偶、子女</td>
+                    </tr>
+                </table>
+            </div>  
+            <h2>百万医疗　有无社保都能买</h2>  
+            <div style="text-align: center;">
+                <img src="images/product_detail/d_1.jpg" alt="" width="935" height="723" />
+            </div>    
+            <div class="blue-content">
+                <h2>若不幸罹患恶性肿瘤（癌症）</h2>
+                <div style="text-align: center;padding: 0 0">
+                    <img src="images/product_detail/d_2.jpg" alt="" width="690" height="190" />
+                </div>   
+                <h2>5年长期保障　持久关爱</h2>
+                <table class="meta-table">
+                    <tr>
+                        <td>保险责任</td>
+                        <td>乐享一生百万医疗</td>
+                        <td>其他百万医疗险</td>
+                    </tr>
+                    <tr>
+                        <td>保障期限</td>
+                        <td>5年</td>
+                        <td>1年</td>
+                    </tr>
+                    <tr>
+                        <td>免赔额</td>
+                        <td>5年累计免赔额1万元</td>
+                        <td>每年免赔额1万元</td>
+                    </tr>
+                    <tr>
+                        <td>每年缴费</td>
+                        <td>每年金额不变</td>
+                        <td>随年龄增长而上浮</td>
+                    </tr>
+                    <tr>
+                        <td>续保条件</td>
+                        <td>缴费后连续保障</td>
+                        <td>视理赔及健康状况而定</td>
+                    </tr>
+                </table>
+                <p style="font-size:24px;text-align: center;">保险公司承诺：5年之后，不会因为被保险人个人的风险状况变化或已经产生<br>理赔而拒绝投保人为被保险人继续投保。</p>
+            </div>
+
+            <div class="process-list">
+                <h2>
+                    理赔流程
+                    <p style="font-size: 24px">全国通赔流程简单</p>
+                </h2>
+                <ul>
+                    <li><i class="i1"></i>
+                        <h3 class="cGold">报案申请</h3>
+                        <p>拨打热线4006-11-7777申请理赔</p>
+                    </li>
+                    <li>
+                        <i class="i2"></i>
+                        <h3 class="cGold">材料递交</h3>
+                        <p>本人或委托人将理赔资料邮寄给保险公司，也可以通过网点柜台提交</p>
+                    </li>
+                    <li><i class="i3"></i>
+                        <h3 class="cGold">审核</h3>
+                        <p>保险公司收到完整的材料后立案审核，并及时作出理赔决定</p>
+                    </li>
+
+                    <li><i class="i4"></i>
+                        <h3 class="cGold">结案</h3>
+                        <p>告知理赔决定，并通过转账支付保险赔款</p>
+                    </li>
+
+                </ul>
+            </div>
+            
+            <div style="text-align:center">
+                <img src="images/product_detail/d_3.jpg" alt="" width="936" height="733" />
+            </div>
+
+            <div class="iabout-us">
+                <div class="text-content">
+                    <h3>了解复星联合健康保险公司</h3>
+                    <p>复星联合健康保险公司由复星集团等六家股东共同发起成立。复星集团成立于1992年，2007年复星国际在香港联交所主板上市。目前总资产超过人民币5000亿元，是福布斯全球500强。复星联合健康保险是全国7家专业健康险公司之一，立足广大消费者需求，开展各类医疗保险、疾病保险、失能收入损失保险、护理保险、意外保险业务，全力为客户提供优质的全生命周期产品，建立贴心的全流程服务体系。2017年，复星联合健康保险公司综合偿付能力充足率为1362.88%，风险综合评价为A。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="service-container clearfix">
+                <div class="aboutus-list">
+                    <ul class="clearfix">
+                        <li><a href="article_detail.html?id=3432">平台动态</a></li>
+                        <li><a href="article_detail.html?id=3432">关于我们</a></li>
+                        <li><a href="article_detail.html?id=124234">帮助中心</a></li>
+                        <li><a href="article_detail.html?id=124234">媒体报道</a></li>
+                        <li><a href="article_detail.html?id=124234">安全保障</a></li>
+                        <li><a href="article_detail.html?id=124234">新手必读</a></li>
+                        <li><a href="article_detail.html?id=124234">平台公告</a></li>
+                        <li><a href="article_detail.html?id=124234">联系我们</a></li>
+                        <li><a href="article_detail.html?id=124234">投研学堂</a></li>
+                    </ul>
+                </div>
+                <ul class="service-qr left">
+                    <li>
+                        <img src="images/qr_code.png" alt="" width="94" height="94">
+                        <p>关注公众号，活动早知道</p>
+                    </li>
+                    <li>
+                        <a href="" target="_blank"><img src="images/qr_code.png" alt="" width="94" height="94"></a>
+                        <p>下载APP，随时享收</p>
+                    </li>
+                </ul>
+                <div class="service-list left">
+                    <p class="telphone">400-666-8888</p>
+                    <p>客服工作时间 08:30-20:30</p>
+                    <a href="" class="udesk">一对一专属客服服务</a>
+                    <p>service@163.com</p>
+                    <p>深圳市福田区深南中路NEO大厦A座24层</p>
+                    <div class="border-left"></div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="footer-with-logo">
+                <span class="footer-with-logo-icp"><a rel="nofollow" title="ICP备案查询" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank"></a></span>
+                <span class="footer-with-logo-netservice"><a rel="nofollow" title="工商网监" href="" target="_blank"></a></span>
+                <!-- <span class="footer-with-logo-vsafe"><a title="安全联盟行业验证" href="" target="_blank"></a></span>  -->
+            </div>
+            <p>
+                <a rel="nofollow" href="http://www.iachina.cn/" target="_blank">中国保险行业协会</a> |
+                <a rel="nofollow" href="https://iask.sina.com.cn/search?searchWord=%E4%BF%9D%E9%99%A9&record=1" target="_blank">新浪爱问保险</a> |
+                <a rel="nofollow" href="https://insurance.cngold.org/" target="_blank">金投保险</a> |
+                <a rel="nofollow" href="" target="_blank">腾讯保险</a> |
+                <a rel="nofollow" href="http://www.rmic.cn/" target="_blank">中国保险网</a>
+            </p>
+            <p>Copyright ©2013-2018 深圳市康达尔（集团）股份有限公司 粤ICP备08029152号</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/element.js"></script>
+    <script>
+        var vmodel = new Vue({
+            el: '#appCtrl',
+            data: function(){
+                return {
+                    amountIndex:0,
+                    ageIndex:0,
+                    product:[{
+                        id:1000001,
+                        amount:20000,
+                        age:[{
+                            scope: '45-49',
+                            price: 400
+                        },{
+                            scope: '50-54',
+                            price: 500
+                        },{
+                            scope: '55-59',
+                            price: 600
+                        }]
+                    },{
+                        id:1000002,
+                        amount:10000,
+                        age:[{
+                            scope: '45-49',
+                            price: 301
+                        },{
+                            scope: '50-54',
+                            price: 401
+                        },{
+                            scope: '55-59',
+                            price: 501
+                        },{
+                            scope: '60-64',
+                            price: 601
+                        }]
+                    }]
+                }
+            },
+
+            watch:{
+                amountIndex: function(val){
+                    var size = this.product[val].age.length-1;
+                    if(this.ageIndex>size){
+                        this.ageIndex = size;
+                    }
+                }
+            },
+
+            methods:{
+                submit: function(){
+                    var amount = vmodel.product[vmodel.amountIndex].amount;
+
+                    var scope = vmodel.product[vmodel.amountIndex].age[vmodel.ageIndex].scope;
+
+                    var id = vmodel.product[vmodel.amountIndex].id;
+
+                    var price = vmodel.product[vmodel.amountIndex].age[vmodel.ageIndex].price;
+
+                    location.href = 'writing_policy.html?amount='+ amount +'&scope='+scope+'&price='+price+'&id='+id;
+                }
+            },
+
+            mounted: function(){
+                var $window = $(window),
+                    stickyNav = $('#stickyNav');
+                $window.on('scroll', function(){
+                    if($window.scrollTop() > stickyNav.offset().top){
+                        stickyNav.addClass('fixed');
+                    }else{
+                        stickyNav.removeClass('fixed')
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

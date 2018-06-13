@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/element.css" />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body>
+    <div class="top-bar">
+    <div class="container clearfix">
+        <p class="left">
+                <a href="article_detail.html?typeid=1001">保单验证</a> |
+                <a href="article_detail.html?typeid=1002">信息披露</a> |
+                <a href="article_detail.html?typeid=1003">关于我们</a> |
+                <a href="article_detail.html?typeid=1004">联系我们</a>
+        </p>
+        <p class="right">
+            <a href="login.html">登陆</a> |
+            <a href="register.html">注册</a>
+        </p>
+    </div>
+</div>
+<div class="top-header">
+    <div class="container clearfix">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="" width="177" height="47" />
+        </a>
+        <ul class="header-nav">
+            <li><a class="on" target="_self" href="index.html">首 页</a></li>
+            <li><a target="_self" href="products_list.html">全部保险产品</a></li>
+            <li><a target="_self" href="claims.html">保险理赔</a></li>
+            <li><a target="_self" href="">企业团险</a></li>
+            <li><a target="_self" href="center_orders.html">我的保单</a></li>
+        </ul>
+        <div class="header-rnav right">
+            <a href="private_custom.html">
+                <i class="i1"></i>
+                定制
+            </a>
+            <a href="">
+                <i class="i2"></i>
+                公众号
+            </a>
+        </div>
+    </div>
+</div>
+        <div class="pri-customer-banner" id="appCtrl">
+            <div class="container">
+               <div class="pri-form">
+                   <div class="title">预约您的专属顾问</div>
+                   <div style="margin: 0 15px">
+                       <el-form :model="form">
+                              <el-form-item>
+                                <el-input v-model="form.name" placeholder="您的姓名"></el-input>
+                              </el-form-item>
+                              
+                              <el-form-item>
+                                <el-input v-model="form.type" placeholder="手机号码"></el-input>
+                              </el-form-item>
+
+                              <el-form-item label="性别">
+                                <el-radio-group v-model="form.gender">
+                                  <el-radio border label="男"></el-radio>
+                                  <el-radio border label="女"></el-radio>
+                                </el-radio-group>
+                              </el-form-item>
+
+                              <el-form-item>
+                                  <el-button type="primary" style="width: 100%;"> 提交预约 </el-button>
+                              </el-form-item>
+
+                              <p style="font-size:12px;color:#999;text-align: center;">预约24小时，保险顾问会联系您完成方案制定</p>
+                        </el-form>
+                    </div>
+               </div> 
+            </div>
+        </div>
+
+        <div class="pri-title-bar">
+            服 务 <span class="cGold">优 势</span>
+        </div>
+
+        <div class="pri-service container">
+            <ul class="clearfix">
+                <li>
+                    <img src="images/pri_l_1.jpg" alt="" width="242" height="180" />
+                    <h3>行业领先</h3>
+                    <p>深耕保险行业多年</p>
+                    <p>强大品牌实力值得信赖</p>
+                </li>
+                <li>
+                    <img src="images/pri_l_2.jpg" alt="" width="242" height="180" />
+                    <h3>专业团队</h3>
+                    <p>专业经验+大数据分析</p>
+                    <p>为您打造实惠全面的优质保障</p>
+                </li>
+                <li>
+                    <img src="images/pri_l_3.jpg" alt="" width="242" height="180" />
+                    <h3>1对1持续服务</h3>
+                    <p>保险顾问1对1服务定制保障方案</p>
+                    <p>7x24小时为您服务</p>
+                </li>
+                <li>
+                    <img src="images/pri_l_4.jpg" alt="" width="242" height="180" />
+                    <h3>理赔省心</h3>
+                    <p>免费协助理赔</p>
+                    <p>快速高效，理赔无忧</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="service-process">
+            <div class="pri-title-bar">服 务 <span class="cGold">流 程</span></div>
+            <img src="images/service-process.png" alt="" width="1100" height="232" />
+        </div>
+
+        <div class="qa-container">
+            <div class="pri-title-bar">常 见 <span class="cGold">问 题</span></div>
+            <ul>
+                <li>
+                    <h4>Q：定制保险方案服务需要收费吗？</h4>
+                    <p>A：保险方案免费定制。凡是通过中民保险网提交预约的用户（包括注册和非注册用户），都可以免费享受丰收经纪资深保险顾问提供的保险方案定制服务，没有任何附加费用。</p>
+                </li>
+                <li>
+                    <h4>Q：定制保险方案服务需要收费吗？</h4>
+                    <p>A：成功预约后，您的专属保险顾问会在24小时内与您联系，深入了解您的保障需求，为您定制最适合您的优质保障方案。</p>
+                </li>
+                <li>
+                    <h4>Q：你们提供的保障方案为什么能比市场上的优惠？</h4>
+                    <p>A：丰收经纪保险网目前已经与80多家保险公司建立了深度的合作关系。因此，在全面满足您保障需求的同时，价格也远远低于线下的保险产品。</p>
+                </li>
+            </ul>
+        </div>
+
+        <a href="" class="pri-order-btn">立即预约</a>
+
+        <footer class="footer">
+            <div class="copyright">
+                <div class="footer-with-logo">
+                    <span class="footer-with-logo-icp"><a rel="nofollow" title="ICP备案查询" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank"></a></span>
+                    <span class="footer-with-logo-netservice"><a rel="nofollow" title="工商网监" href="" target="_blank"></a></span>
+                    <!-- <span class="footer-with-logo-vsafe"><a title="安全联盟行业验证" href="" target="_blank"></a></span>  -->
+                </div>
+                <p>
+                    <a rel="nofollow" href="http://www.iachina.cn/" target="_blank">中国保险行业协会</a> |
+                    <a rel="nofollow" href="https://iask.sina.com.cn/search?searchWord=%E4%BF%9D%E9%99%A9&record=1" target="_blank">新浪爱问保险</a> |
+                    <a rel="nofollow" href="https://insurance.cngold.org/" target="_blank">金投保险</a> |
+                    <a rel="nofollow" href="" target="_blank">腾讯保险</a> |
+                    <a rel="nofollow" href="http://www.rmic.cn/" target="_blank">中国保险网</a>
+                </p>
+                <p>Copyright ©2013-2018 深圳市康达尔（集团）股份有限公司 粤ICP备08029152号</p>
+            </div>
+        </footer>
+        <script src="js/jquery.js"></script>
+        <script src="js/vue.js"></script>
+        <script src="js/element.js"></script>
+        <script>
+            var vm = new Vue({
+                el: '#appCtrl',
+                data:function(){
+                    return {
+                        form:{
+                            name:'',
+                            mobile:'',
+                            gender:'男'
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
