@@ -73,13 +73,21 @@
                 </dl>
                 <dl class="clearfix">
                     <dt>保障期限：</dt>
-                    <dd>一年</dd>
+                    <dd>
+                        <a 
+                        v-for="(el,index) in product[amountIndex].period"
+                        :key="index"
+                        @click="periodIndex=index"
+                        href="javascript:;"
+                        :class="{on:periodIndex === index}">
+                        {{el.label}}</a>
+                    </dd>
                 </dl>
                 <dl class="clearfix">
                     <dt>年　　龄：</dt>
                     <dd>
                         <a 
-                        v-for="(el,index) in product[amountIndex].age"
+                        v-for="(el,index) in product[amountIndex].period[periodIndex].age"
                         :key="index"
                         @click="ageIndex=index"
                         href="javascript:;"
@@ -91,7 +99,7 @@
                     <dt>价　　格：</dt>
                     <dd>
                         <p class="product-info-price">
-                            {{product[amountIndex].age[ageIndex].price}} <sub class="cGray">元/年</sub>
+                            {{product[amountIndex].period[periodIndex].age[ageIndex].price}} <sub class="cGray">元/年</sub>
                         </p>
                     </dd>
                 </dl>
@@ -338,35 +346,85 @@
             data: function(){
                 return {
                     amountIndex:0,
+                    periodIndex:0,
                     ageIndex:0,
                     product:[{
                         id:1000001,
                         amount:20000,
-                        age:[{
-                            scope: '45-49',
-                            price: 400
-                        },{
-                            scope: '50-54',
-                            price: 500
-                        },{
-                            scope: '55-59',
-                            price: 600
-                        }]
+                        period:[{
+                            value:1,
+                            label:'一年',
+                            age:[{
+                                scope: '45-49',
+                                price: 401,
+                                id:11123401
+                            },{
+                                scope: '50-54',
+                                price: 501,
+                                id:11123501
+                            },{
+                                scope: '55-59',
+                                price: 601,
+                                id:11123601
+                            }]
+                        }
+                        // ,{
+                        //     value:2,
+                        //     label:'二年',
+                        //     age:[{
+                        //         scope: '45-49',
+                        //         price: 401,
+                        //         id:11123401
+                        //     },{
+                        //         scope: '50-54',
+                        //         price: 501,
+                        //         id:11123501
+                        //     },{
+                        //         scope: '55-59',
+                        //         price: 601,
+                        //         id:11123601
+                        //     }]
+                        // }
+                    ]
                     },{
                         id:1000002,
                         amount:10000,
-                        age:[{
-                            scope: '45-49',
-                            price: 301
+                        period:[{
+                            value:0.5,
+                            label:'半年',
+                            age:[{
+                                scope: '45-49',
+                                price: 301,
+                                id:11123301
+                            },{
+                                scope: '50-54',
+                                price: 401,
+                                id:11123401
+                            },{
+                                scope: '55-59',
+                                price: 501,
+                                id:11123501
+                            },{
+                                scope: '60-64',
+                                price: 601,
+                                id:11123601
+                            }]
                         },{
-                            scope: '50-54',
-                            price: 401
-                        },{
-                            scope: '55-59',
-                            price: 501
-                        },{
-                            scope: '60-64',
-                            price: 601
+                            value:1,
+                            label:'一年',
+                            age:[{
+                                scope: '50-54',
+                                price: 401,
+                                id:11123401
+                            },{
+                                scope: '55-59',
+                                price: 501,
+                                id:11123501
+                            },{
+                                scope: '60-64',
+                                price: 601,
+                                id:11123601
+                            }]
                         }]
                     }]
                 }
@@ -374,7 +432,14 @@
 
             watch:{
                 amountIndex: function(val){
-                    var size = this.product[val].age.length-1;
+                    var size = this.product[val].period.length-1;
+                    if(this.periodIndex>size){
+                        this.periodIndex = size;
+                    }
+                },
+
+                periodIndex: function (val) {
+                    var size = this.product[this.amountIndex].period[val].age.length - 1;
                     if(this.ageIndex>size){
                         this.ageIndex = size;
                     }
@@ -383,15 +448,9 @@
 
             methods:{
                 submit: function(){
-                    var amount = vmodel.product[vmodel.amountIndex].amount;
 
-                    var scope = vmodel.product[vmodel.amountIndex].age[vmodel.ageIndex].scope;
 
-                    var id = vmodel.product[vmodel.amountIndex].id;
-
-                    var price = vmodel.product[vmodel.amountIndex].age[vmodel.ageIndex].price;
-
-                    location.href = 'writing_policy.html?amount='+ amount +'&scope='+scope+'&price='+price+'&id='+id;
+                    location.href = 'writing_policy.html?productId='+ this.product[this.amountIndex].period[this.periodIndex].age[this.ageIndex].id;
                 }
             },
 
