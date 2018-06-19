@@ -173,6 +173,7 @@ display: flex;position: relative;}
 
 /*私人定制*/
 .pri-customer-banner{height: 590px;background: url('../images/pri-customer-banner.jpg') 50% 50% no-repeat;}
+.pri-customer-banner2{height: 588px;background: url('../images/cooper_banner.jpg') 50% 50% no-repeat;}
 .pri-customer-banner .container{height: 590px;position: relative;}
 .pri-form{width: 336px;position: absolute;right: 0;height: 363px;background: #fff;top: 50%;margin-top: -182px;}
 .pri-form .title{font-size: 18px;padding: 20px;text-align: center;}
