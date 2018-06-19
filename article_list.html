@@ -108,6 +108,7 @@
                 </li>
             </ul>
 <div style="padding:20px">
+<!-- <div style="padding:20px">
 <el-pagination
   style="text-align: right;"
   :background="true"
@@ -118,8 +119,19 @@
   :total="total"
   @current-change="currentPage">
 </el-pagination>    
+</div> -->
+<div class="el-pagination is-background" style="padding: 20px 28px; text-align: right;">
+    <ul class="el-pager"> 
+        <li><a href=" ">首页</a></li> 
+        <li><a href="#">上一页</a></li> 
+        <li class="active"><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="http://127.0.0.1:8080/html/1//149/list2.html">下一页</a></li> 
+        <li><a href="http://127.0.0.1:8080/html/1//149/list2.html">最末页</a></li> 
+    </ul> 
 </div>
-
 
         </div>
         <div class="article-more" id="content">
