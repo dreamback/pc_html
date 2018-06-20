@@ -232,8 +232,8 @@ display: flex;position: relative;}
 /* 理赔 */
 .claims-banner{height: 590px;background: url('../images/claims_banner_bg.jpg') 50% 50%;}
 .claims-banner .container{height: 590px;position: relative;overflow: hidden;}
-.claims-banner .phone{width: 331px;height: 635px;background-image: url('../images/claims_banner_phone.png');position: absolute;bottom: -100px;left: 100px;-webkit-animation: slideIn 1s ease-out forwards;animation: slideIn 1s ease-out forwards;}
-.claims-banner .text{color: #fff;position: absolute;top:200px;right: 60px;width: 600px;text-align: center;-webkit-animation: slideIn 1s ease-out .4s forwards;animation: slideIn 1s ease-out .4s forwards;opacity: 0;}
+.claims-banner .phone{width: 331px;height: 635px;background-image: url('../images/claims_banner_phone.png');position: absolute;bottom: -100px;left: 100px;-webkit-animation: slideIn 1s ease-out forwards;animation: slideIn 1s ease-out forwards;background-repeat: no-repeat;}
+.claims-banner .text{color: #fff;position: absolute;top:200px;right: 66px;width: 600px;text-align: center;-webkit-animation: slideIn 1s ease-out .4s forwards;animation: slideIn 1s ease-out .4s forwards;opacity: 0;}
 .claims-banner .text h2{font-size: 33px;letter-spacing: 5px;}
 .claims-banner .text h2 .cGold{color: #E8B865;}
 .claims-banner .text p span{padding: 0 20px;}
