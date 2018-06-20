@@ -92,7 +92,7 @@
 .register-container .el-form{width: 600px;margin: 0 auto;}
 
 /*登陆*/
-.login-wrapper{height: 589px;background: url('../images/login_banner.jpg') 50% 50%;position: relative;}
+.login-wrapper{height: 540px;background: url('../images/login_banner.jpg') 50% 50%;position: relative;}
 .login-form{width: 336px;height: 333px;border: 1px solid #C2C3C4;background: #fff;position: absolute;top: 50%;margin-top: -165px;left: 50%;margin-left: 150px;}
 .login-form .title{font-size: 18px;height: 40px;line-height: 40px;padding-left: 18px;border-bottom: 1px solid #C2C3C4;}
 .login-form .bd{margin: 0 15px;}
