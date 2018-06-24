@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+  <base target="mainFrame" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" /> 
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/animate/1.0.0/animate.css" media="all" /> 
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/iconfont/1.0.0/iconfont.css"/>
+    
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery/1.9.1/jquery-1.9.1.js"></script> 
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.serializeJSON/2.8.1/jquery.serializejson.min.js"></script> 
+  
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/ztree/3.5/zTreeStyle.css" media="all" /> 
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/ztree/3.5/jquery.ztree.all-3.5.min.js"></script> 
+  
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/css/bootstrap.min.css" media="all" /> 
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/css/bootstrap-switch.css" media="all" /> 
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/css/bootstrapValidator.css" media="all" /> 
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/css/bootstrap-notify.css" media="all" />
+  
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/js/bootstrap-switch.min.js"></script>   
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/js/bootstrapValidator.js"></script> 
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/bootstrap/3.3.5/js/bootstrap-notify.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/select2/4.0.3/css/select2.min.css" media="all" />
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/select2/4.0.3/js/select2.min.js"></script>
+  
+	<!--时间插件-->
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.tmpl/1.4.2/jquery.tmpl.min.js"></script>
+  <!--时间插件-->
+  <link href="http://cdn.mingsoft.net/plugins/bootstrap.daterangepicker/1.3.4/daterangepicker.css" rel="stylesheet">
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/bootstrap.daterangepicker/1.3.4/moment.js"></script>
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/bootstrap.daterangepicker/1.3.4/daterangepicker.js"></script>
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.cookie/2.2.0/jquery.cookie.js"></script>
+    
+  <!----上传图片--->
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.swfupload/1.0.0/swfupload.js"></script>
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.swfupload/1.0.0/jquery.swfupload.js"></script>
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.swfupload/1.0.0/fileprogress.js"></script>
+  <!--script type="text/javascript" src="http://cdn.mingsoft.net/plugins/plupload/2.2.1/plupload.full.min.js"></script-->
+  
+  <!--后台UI--> 
+  <script type="text/javascript" src="http://cdn.mingsoft.net/skin/manager/4.6.0/js/ms.manager.js"></script>
+  <script type="text/javascript" src="http://cdn.mingsoft.net/skin/manager/4.6.0/js/ms.web.js"></script>
+  
+  <!--easyUI-->
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/jquery.easyui/1.5/themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/plugins/jquery.easyui/1.5/themes/icon.css">
+  <script type="text/javascript" src="http://cdn.mingsoft.net/plugins/jquery.easyui/1.5/jquery.easyui.min.js"></script>
+
+  <!--bootstrap=table-->
+  <link rel="stylesheet" href="http://cdn.mingsoft.net/plugins/bootstrap-table/1.11.1/bootstrap-table.css">
+  <link rel="stylesheet" href="http://cdn.mingsoft.net/plugins/bootstrap-table/1.11.1/extensions/tree-column/bootstrap-table-tree-column.css">
+  <script src="http://cdn.mingsoft.net/plugins/bootstrap-table/1.11.1/bootstrap-table.js"></script>
+  <script src="http://cdn.mingsoft.net/plugins/bootstrap-table/1.11.1/extensions/tree-column/bootstrap-table-tree-column.min.js"></script>
+  <script src="http://cdn.mingsoft.net/plugins//bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+  
+  <!-- vue框架所需要的资源 -->
+  <script src="http://cdn.mingsoft.net/plugins/hammerjs/2.0.8/hammer.min.js"></script>
+  <script src="http://cdn.mingsoft.net/plugins/vue/2.3.3/vue.min.js"></script>
+	
+  <link rel="stylesheet" type="text/css" href="http://cdn.mingsoft.net/skin/manager/4.6.0/css/ms.manager.min.css" media="all" />
+  
+
+       
+
+  <script>
+    var basePath = "http://127.0.0.1:8080";
+    var base = "";
+    var managerPath = "/ms";
+    var static = "http://cdn.mingsoft.net";
+    $(function() {
+    			//启用工具提示
+		   //	$("[data-toggle='tooltip']").tooltip();
+		   //	$("[data-toggle='popover']").popover({html:true});
+    })
+		var websiteId= "1" ;
+  </script>	 
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="/https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	
+	<script type="text/javascript" charset="utf-8" src="http://test.51dfs.cn/static/plugins/ueditor/1.4.3.1/ueditor.parse.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://test.51dfs.cn/static/plugins/ueditor/1.4.3.1/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://test.51dfs.cn/static/plugins/ueditor/1.4.3.1/ueditor.all.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://test.51dfs.cn/static/plugins/ueditor/1.4.3.1/lang/zh-cn/zh-cn.js"></script>
+	</head>
+	<body>
+		<div class="ms-content">
+				<div class="ms-content-body" style="width:100%;">
+    <div class="ms-content-body-title" style="">
+        <strong>保险产品属性增加</strong>
+	<button type="button"
+ class="btn btn-success" title="保存" onclick="save()"	 data-toggle="tooltip"	 onclick="save()"	 data-target="bottom"	 id="saveButton20180624101803"		 data-placement="bottom"	
+	>
+	保存 
+	 <span class="glyphicon glyphicon-floppy-saved" style="margin-right:5px"></span>
+	
+	</button>	<button type="button"
+ class="btn btn-default" title="返回" onclick="javascript:history.go(-1)"	 data-toggle="tooltip"	 onclick="javascript:history.go(-1)"	 data-target="bottom"	 id="backButton20180624101803"		 data-placement="bottom"	
+	>
+	返回
+	 <span class="glyphicon glyphicon-share-alt" style="margin-right:5px"></span>
+	
+	</button>    </div>
+	    <div class="ms-content-body-panel" style=""> 
+<form role="form" method="post" action="" target="_self"
+ id="articleForm" name="articleForm" class="form-horizontal" style="display:none; width:100%; background-color: white;" name="articleForm">
+<input type="hidden" name="redirect"/>
+<input type="hidden" name="insId" value="0"/>
+<div class="form-group ms-form-group">	
+	<label for="title"   class="col-sm-2 control-label ">
+	保险名称
+	</label>
+	
+	<div class="col-sm-9 ms-from-group-input ms-form-input"  style="width:400px;">		<input type="text"  autocomplete="off"						 maxlesizength="8"						 name="title" class="form-control" title="保险名称" name="title" placeholder="请输入保险名称"		maxlength="20"		required="true"		data-bv-notempty-message="保险名称不能为空"		data-bv-stringlength-message="属性名称在20个字符以内!"		/>	</div>
+</div>
+<div class="form-group ms-form-group">	
+	<label for="property"   class="col-sm-2 control-label ">
+	保险属性
+	</label>
+	
+	<div class="col-sm-9" >
+	<label class="ms-check"><input type="checkbox"	 value="1"	 name="property" name="property"	/> 关注</label> 
+	<label class="ms-check"><input type="checkbox"	 value="2"	 name="property" name="property"	/> 严选</label> 
+	<label class="ms-check"><input type="checkbox"	 value="3"	 name="property" name="property"	/> 推荐</label>
+	</div>
+</div>	
+<div class="form-group ms-form-group">	
+	<label for="startPrice"   class="col-sm-2 control-label ">
+	最底价格
+	</label>
+	
+	<div class="col-sm-9 ms-from-group-input ms-form-input"  style="width:400px;">		<input type="text"  autocomplete="off"				 maxlength="10"		 maxlesizength="5"				 value="0"		 name="startPrice" class="form-control" title="最底价格" maxlength="10" name="startPrice" placeholder="请录入最底价格"		data-bv-between="true"		data-bv-between-message="必须大于0且小于200"		data-bv-between-min="0"		data-bv-between-max="200"		data-bv-regexp="true"		data-bv-regexp-regexp="^-?\d+$"		data-bv-regexp-message="请输入数字"		/>	</div>
+</div>
+			
+	<div class="form-group">	
+	<label    class="col-sm-2 control-label ">
+	保险栏目
+	</label>
+	
+		<div class="col-sm-9 ms-from-group-input" style="line-height:30px; width:400px;">	<!-- css样式开始 -->
+	<style type="text/css">
+		.ztreeinputTree{width:100%;max-height: 240px;overflow:auto;}
+		.ztreeinputTree li a{padding:0}
+	</style>	
+	<!-- css样式结束 -->
+
+
+	<!-- 初始化样式开始 -->
+	<div class="dropdown" id="inputTree">
+		<button type="text" id="treeLabelinputTree" class="form-control dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="text-align:left">
+			选择栏目
+		</button>
+		<input type="hidden" name="insType"  value="0">
+		<ul class="ztree ztreeinputTree dropdown-menu" role="menu" id="treeDomeinputTree" aria-labelledby="treeLabelinputTree">
+		</ul>
+	</div>
+	<!-- 初始化样式结束 -->
+	
+	<!-- js操作方法开始 input -->	
+	<script>
+		//初始化树形数据
+		var zNodesinputTree = [{"allCategroyChildrenIds":[150],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":149,"categoryCreateBy":0,"categoryDateTime":1528166781000,"categoryDel":0,"categoryDictId":0,"categoryId":150,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149","categorySmallImg":"","categorySort":4,"categoryTitle":"个人和家庭保险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"个人和家庭保险","columnKeyword":"个人和家庭保险","columnListUrl":"products_list.html","columnPath":"/149/150","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[151],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":149,"categoryCreateBy":0,"categoryDateTime":1528166872000,"categoryDel":0,"categoryDictId":0,"categoryId":151,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149","categorySmallImg":"","categorySort":3,"categoryTitle":"企业团体保险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"企业团体保险","columnKeyword":"企业团体保险","columnListUrl":"products_list.html","columnPath":"/149/151","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[152],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528184210000,"categoryDel":0,"categoryDictId":0,"categoryId":152,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":8,"categoryTitle":"旅游险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"旅游险","columnKeyword":"旅游险","columnListUrl":"products_list.html","columnPath":"/149/150/152","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[153],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528184268000,"categoryDel":0,"categoryDictId":0,"categoryId":153,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":7,"categoryTitle":"意外险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"意外险","columnKeyword":"意外险","columnListUrl":"products_list.html","columnPath":"/149/150/153","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[160],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528439699000,"categoryDel":0,"categoryDictId":0,"categoryId":160,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":6,"categoryTitle":"健康险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"健康险","columnKeyword":"健康险","columnListUrl":"products_list.html","columnPath":"/149/150/160","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[163],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528439843000,"categoryDel":0,"categoryDictId":0,"categoryId":163,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":5,"categoryTitle":"家财险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"家财险","columnKeyword":"家财险","columnListUrl":"products_list.html","columnPath":"/149/150/163","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[166],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528439945000,"categoryDel":0,"categoryDictId":0,"categoryId":166,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":4,"categoryTitle":"人寿险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"人寿险","columnKeyword":"人寿险","columnListUrl":"products_list.html","columnPath":"/149/150/166","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[169],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528440184000,"categoryDel":0,"categoryDictId":0,"categoryId":169,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":3,"categoryTitle":"车险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"车险","columnKeyword":"车险","columnListUrl":"products_list.html","columnPath":"/149/150/169","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[172],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":150,"categoryCreateBy":0,"categoryDateTime":1528440464000,"categoryDel":0,"categoryDictId":0,"categoryId":172,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150","categorySmallImg":"","categorySort":2,"categoryTitle":"理财险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"理财险","columnKeyword":"理财险","columnListUrl":"products_list.html","columnPath":"/149/150/172","columnType":1,"columnUrl":"article_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[157],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":152,"categoryCreateBy":0,"categoryDateTime":1528385662000,"categoryDel":0,"categoryDictId":0,"categoryId":157,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,152","categorySmallImg":"","categorySort":2,"categoryTitle":"国内旅行保险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"国内旅行保险","columnKeyword":"国内旅行保险","columnListUrl":"products_list.html","columnPath":"/149/150/152/157","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[156],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":152,"categoryCreateBy":0,"categoryDateTime":1528385595000,"categoryDel":0,"categoryDictId":0,"categoryId":156,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,152","categorySmallImg":"","categorySort":0,"categoryTitle":"境外旅行保险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"","columnKeyword":"境外旅行保险","columnListUrl":"products_list.html","columnPath":"/149/150/152/156","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[159],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":153,"categoryCreateBy":0,"categoryDateTime":1528439652000,"categoryDel":0,"categoryDictId":0,"categoryId":159,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,153","categorySmallImg":"","categorySort":2,"categoryTitle":"综合意外险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"综合意外险","columnKeyword":"综合意外险","columnListUrl":"products_list.html","columnPath":"/149/150/153/159","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[158],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":153,"categoryCreateBy":0,"categoryDateTime":1528439607000,"categoryDel":0,"categoryDictId":0,"categoryId":158,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,153","categorySmallImg":"","categorySort":1,"categoryTitle":"交通意外险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"交通意外险","columnKeyword":"交通意外险","columnListUrl":"products_list.html","columnPath":"/149/150/153/158","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[162],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":160,"categoryCreateBy":0,"categoryDateTime":1528439781000,"categoryDel":0,"categoryDictId":0,"categoryId":162,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,160","categorySmallImg":"","categorySort":2,"categoryTitle":"少儿健康","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"少儿健康","columnKeyword":"少儿健康","columnListUrl":"products_list.html","columnPath":"/149/150/160/162","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[161],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":160,"categoryCreateBy":0,"categoryDateTime":1528439743000,"categoryDel":0,"categoryDictId":0,"categoryId":161,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,160","categorySmallImg":"","categorySort":1,"categoryTitle":"中老年健康","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"中老年健康","columnKeyword":"中老年健康","columnListUrl":"products_list.html","columnPath":"/149/150/160/161","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[165],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":163,"categoryCreateBy":0,"categoryDateTime":1528439913000,"categoryDel":0,"categoryDictId":0,"categoryId":165,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,163","categorySmallImg":"","categorySort":2,"categoryTitle":"盗抢损失","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"盗抢损失","columnKeyword":"盗抢损失","columnListUrl":"products_list.html","columnPath":"/149/150/163/165","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[164],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":163,"categoryCreateBy":0,"categoryDateTime":1528439880000,"categoryDel":0,"categoryDictId":0,"categoryId":164,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,163","categorySmallImg":"","categorySort":1,"categoryTitle":"银行卡资金安全","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"银行卡资金安全","columnKeyword":"银行卡资金安全","columnListUrl":"products_list.html","columnPath":"/149/150/163/164","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[168],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":166,"categoryCreateBy":0,"categoryDateTime":1528440153000,"categoryDel":0,"categoryDictId":0,"categoryId":168,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,166","categorySmallImg":"","categorySort":2,"categoryTitle":"轻症保障","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"轻症保障","columnKeyword":"轻症保障","columnListUrl":"products_list.html","columnPath":"/149/150/166/168","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[167],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":166,"categoryCreateBy":0,"categoryDateTime":1528439981000,"categoryDel":0,"categoryDictId":0,"categoryId":167,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,166","categorySmallImg":"","categorySort":1,"categoryTitle":"重大疾病","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"重大疾病","columnKeyword":"重大疾病","columnListUrl":"products_list.html","columnPath":"/149/150/166/167","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[171],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":169,"categoryCreateBy":0,"categoryDateTime":1528440262000,"categoryDel":0,"categoryDictId":0,"categoryId":171,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,169","categorySmallImg":"","categorySort":2,"categoryTitle":"驾乘险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":" 驾乘险","columnKeyword":" 驾乘险","columnListUrl":"products_list.html","columnPath":"/149/150/169/171","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[170],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":169,"categoryCreateBy":0,"categoryDateTime":1528440227000,"categoryDel":0,"categoryDictId":0,"categoryId":170,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,150,169","categorySmallImg":"","categorySort":0,"categoryTitle":"私家车险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"私家车险","columnKeyword":"私家车险","columnListUrl":"products_list.html","columnPath":"/149/150/169/170","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[175],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":151,"categoryCreateBy":0,"categoryDateTime":1528440595000,"categoryDel":0,"categoryDictId":0,"categoryId":175,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,151","categorySmallImg":"","categorySort":3,"categoryTitle":"财产险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"财产险","columnKeyword":"财产险","columnListUrl":"products_list.html","columnPath":"/149/151/175","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[174],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":151,"categoryCreateBy":0,"categoryDateTime":1528440570000,"categoryDel":0,"categoryDictId":0,"categoryId":174,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,151","categorySmallImg":"","categorySort":2,"categoryTitle":"责任险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"责任险","columnKeyword":"责任险","columnListUrl":"products_list.html","columnPath":"/149/151/174","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0},{"allCategroyChildrenIds":[173],"allCategroyChildrenList":[{"$ref":".."}],"appId":1,"categoryAppId":0,"categoryCategoryId":151,"categoryCreateBy":0,"categoryDateTime":1528440546000,"categoryDel":0,"categoryDictId":0,"categoryId":173,"categoryLevel":0,"categoryManagerId":50,"categoryModelId":7,"categoryParentId":"149,151","categorySmallImg":"","categorySort":1,"categoryTitle":"团体险","categoryUpdateBy":0,"childrenCategoryList":[],"columnContentModelId":0,"columnDescrip":"团体险","columnKeyword":"团体险","columnListUrl":"products_list.html","columnPath":"/149/151/173","columnType":1,"columnUrl":"prodcut_detail.html","createBy":0,"delFlag":0,"updateBy":0}];
+		
+		//初始化树形结构
+		var settinginputTree = {
+			view:{//控制视图
+				fontCss:{"white-space":"normal","display":"initial","word-break":"break-all"},
+				showIcon:true,//是否显示节点文件夹图标
+				showLine:true,//是否显示借点连接线
+				expandSpeed:"",//折叠时的动画速度,参考jquery中动画效果的speed参数,三种预定速度之一的字符串("slow", "normal", or "fast")
+			},
+			data: {//控制显示数据
+				simpleData: {
+					enable: true,//是否采用简单数据模式 (Array)
+					idKey:"categoryId",//节点ID名称
+					pIdKey:"categoryCategoryId",//父节点ID名称
+				},
+				key:{
+					name:"categoryTitle",//节点数据保存节点名称的属性名称。
+					url:"",//节点跳转地址属性
+				}
+			},
+			callback: {//控制获取选择的节点数据
+				beforeClick:null,//用于捕获单击节点之前的事件回调函数，并且根据返回值确定是否允许单击操作
+				onClick:getZtreeIdinputTree,//用于捕获节点被点击的事件回调函数
+			},
+			check:{//控制节点的选中方式(暂时未启用,根据后期需求再做调整)
+				autoCheckTrigger:true,//是否触发自动勾选
+				enable:false,//节点上是否显示选择框,false:不显示,true:显示。
+				chkStyle:"checkbox",//勾选框类型(checkbox[默认值] 或 radio)
+				chkboxType:{"Y":"ps","N":"ps"},//设置勾选关联关系
+			},
+		};	
+		
+		var zTreeObjinputTree="";
+		$(function(){
+			//自定义顶级栏目
+			
+			//加载树形
+			$.fn.zTree.init($("#treeDomeinputTree"),settinginputTree,zNodesinputTree);	
+			
+			//zTree内部函数对象,主要用户调用zTree内部方法
+			zTreeObjinputTree = $.fn.zTree.getZTreeObj("treeDomeinputTree");
+			
+			//展开(true)/折叠(false)全部节点(zTree内部方法)
+			zTreeObjinputTree.expandAll(true);
+
+			//加载默认节点
+				zTreeObjinputTree.selectNode(zTreeObjinputTree.getNodeByParam("categoryId",0,null));
+			
+			//当属性为折叠时，控制下拉菜单的开启和关闭
+			
+		});
+		
+		
+		//获取树形中选中的值,将选择值加载到隐藏框中
+		function getZtreeIdinputTree(event,treeId,treeNode){
+			var booleanClick = true;
+			//用于捕获节点被点击的事件回调函数
+				booleanClick=clickZtreeId(event,treeId,treeNode);;
+			if(booleanClick==false){
+				return;
+			}
+			//将用户选择数据ID加载到隐藏框
+			$("#inputTree input[name='insType']").val(treeNode.categoryId);
+			//将用户选择数据的名称加载到输入框
+			$("#treeLabelinputTree").text(treeNode.categoryTitle);
+			
+		}
+	</script>
+	<!-- js操作方法结束 -->
+
+		</div>
+	</div>
+<div class="form-group ms-form-group">	
+	<label for="companyId"   class="col-sm-2 control-label ">
+	保险公司
+	</label>
+	
+	<div class="col-sm-9 ms-form-control ms-from-group-input"  style="width:400px">		<select		 id="companySelect"			    name="companyId" class="form-control" name="companyId"		required="true"		data-bv-notempty-message="必选项目"		>						<option value="8" >浙商保险</option>						<option value="7" >前海人寿</option>						<option value="6" >中国平安</option>						<option value="5" >众安保险</option>		</select>
+	</div>
+
+</div>
+			
+	<div class="form-group">	
+	<label    class="col-sm-2 control-label ">
+	产品导航图
+	</label>
+	
+		<div class="col-sm-9 ms-from-group-input" style="line-height:30px; width:400px;">	<div id="ms__uploadPic_smallImage">
+		<style>
+			.msUploadImgs{margin: 0;padding: 0;list-style: none;}
+			.msUploadImgs li {list-style:none;float: left;text-align: center;border: 1px solid #F3F3F3;margin: 8px; width:100px;}
+			.msUploadImgs img {width:100%; height:100px;}
+			.msUploadImgs li span {cursor: pointer;}
+			.divUploader{clear:both}
+		</style>
+		<ul class="msUploadImgs">
+		</ul>
+		<div class="divUploader"><input type="button" id="up_file_smallImage" />
+		<div class="alert alert-warning alert-dismissable">提示:产品列表图,支持jpg格式</div>
+		</div>
+		<input type="hidden" size="100" name="smallImage" id="smallImage" value="" />
+	</div>
+	<script type="text/javascript">
+		    $(function ()  {
+		        $('#ms__uploadPic_smallImage').swfupload({
+		            upload_url: "http://127.0.0.1:8080/file/upload.do",
+		            post_params:{"uploadPath":"","uploadFloderPath":"insurance","isRename":"true","maxSize":"1","allowedFile":"*.jpg;*.png;*.gif;*.bmp;*.jpeg","allowedFile":""},
+		            file_size_limit: 1*1024,
+		            file_types: "*.jpg;*.png;*.gif;*.bmp;*.jpeg",
+		            file_types_description: "Image files",
+		            file_upload_limit: 1,
+		            flash_url: "http://127.0.0.1:8080http://test.51dfs.cn/static/plugins/jquery.swfupload/1.0.0/swfupload.swf",
+		            button_image_url: static+"/plugins/jquery.swfupload/1.0.0/button.png", 
+		         	button_width: 92,
+					button_height: 34,
+		            button_placeholder: $('#up_file_smallImage')[0],
+		            debug: false
+		        })
+				.bind('fileQueued', function (event, file) {	
+				   if ($("#ms__uploadPic_smallImage .msUploadImgs").children().length>=1) {
+						  $(this).swfupload('cancelUpload');
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'最多上传1个文件!' }
+						 }).show();	
+					} else {
+					    var listitem = '<li id="' + file.id + '"><div class="displayimg"><img src="'+static+'/plugins/jquery.swfupload/1.0.0/load.gif" /></div><span class="front-cover">0%</span></li>';
+			            $('#ms__uploadPic_smallImage ul').append(listitem);
+					    $(this).swfupload('startUpload');
+				    }
+				    
+				})
+				.bind('fileQueueError', function (event, file, errorCode, message) {
+				    if (errorCode==-130) {
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'文件类型错误!' }
+						 }).show();	
+				    } else if (errorCode==-100) {
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'最多上传1个文件!' }
+						 }).show();	
+				    } else {
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'上传图片过多或上传图片过大!' }
+						 }).show();	
+				    }
+				})
+				.bind('uploadStart', function (event, file) {
+						$('#ms__uploadPic_smallImage ul li#' + file.id).find('span.front-cover').text('0%');
+				})
+				.bind('uploadProgress', function (event, file, bytesLoaded) {
+					   var percentage = Math.round((bytesLoaded / file.size) * 100);
+				       $('#ms__uploadPic_smallImage ul li#' + file.id).find('span.front-cover').text(percentage + '%');
+				})
+				.bind('uploadSuccess', function (event, file, serverData) {
+				    var item = $('#ms__uploadPic_smallImage ul li#' + file.id);
+				    item.find('div.displayimg').html('<img src="http://127.0.0.1:8080/' + serverData + '" />');
+				    item.find('span.front-cover').html('<a class="btn btn-xs red tooltips " data-original-title="点击删除图片"><i class="glyphicon glyphicon-trash"></i></a>');
+				    if($('#smallImage').val()!=""){
+				    	 $('#smallImage').val($('#smallImage').val() + "|"+ serverData )
+				    }else{
+				    	 $('#smallImage').val(serverData )
+				    }
+				    
+				    $('#ms__uploadPic_smallImage ul li#' + file.id + ' span.front-cover').bind('click', function () {
+				        $('#ms__uploadPic_smallImage ul li#' + file.id + '').slideUp('fast');
+				        var swfu = $.swfupload.getInstance('#ms__uploadPic_smallImage');
+				        var stats = swfu.getStats();
+				        stats.successful_uploads--;
+				        swfu.setStats(stats);
+				        
+				        //判断保存图片的输入框中是否存在"|"如果存在则表示图片至少要两张
+				        if ($('#smallImage').val().indexOf("|")<0) {
+				        	$('#smallImage').val($('#smallImage').val().replace(serverData, ""));
+				        }else{
+				        	 $('#smallImage').val($('#smallImage').val().replace(serverData+"|", ""));
+				        }
+				      
+				        $('#ms__uploadPic_smallImage ul li#' + file.id).remove();
+				        
+				        setInputValuesmallImage();
+				    });
+				})
+				.bind('uploadComplete', function (event, file) {
+				    $(this).swfupload('startUpload');
+				})
+		    });
+		    
+		    // 设置文本框的值 用于提交数据
+		    function setInputValuesmallImage(){
+		    	var value = "";
+		        // 设置文本的值
+		        $("#ms__uploadPic_smallImage").find("ul li .displayimg img").each(function(){
+		      		var src = $(this).attr('src').replace('http://127.0.0.1:8080/', '');
+		        	value += src + '|';
+		        });
+		        // 删除最后一个"|"
+		        if (value){
+		        	value = value.slice(0, -1);
+		        }
+		        
+		      	$('#smallImage').val(value);
+		    }
+		     
+		    function removePreviewsmallImage(uid,imgPath) {
+		        var swfu = $.swfupload.getInstance('#ms__uploadPic_smallImage');
+		        var stats = swfu.getStats();
+		        stats.successful_uploads--;
+		        swfu.setStats(stats);
+		        //imgPath=imgPath.replace("|","")
+		        
+				//判断保存图片的输入框中是否存在"|"如果存在则表示图片至少要两张
+				//if ($('#smallImage').val().indexOf("|")<0) {
+				     //$('#smallImage').val($('#smallImage').val().replace(imgPath, ""));
+				// }else{
+				     //$('#smallImage').val($('#smallImage').val().replace(imgPath+"|", ""));
+				// }
+				
+				//var obj=$("#ms__uploadPic_smallImage").find("ul li:last");
+				//var imgSrcPath = obj.find(".displayimg img").attr("src").replace("http://127.0.0.1:8080/","");
+				//判断是否删除的是最后一张,如果是则删除时不含"|"
+				//if(imgSrcPath==imgPath.replace("|","")){
+				    //$('#smallImage').val($('#smallImage').val().replace("|"+imgPath.replace("|",""), ""));
+				//}
+				
+		        $('#ms__uploadPic_smallImage ul li#' + uid.parentNode.id).slideUp('fast',function() {
+		        	$(this).remove();
+		        	setInputValuesmallImage();
+		        });
+		    }
+		    
+		    /**
+		    *提供给弹窗显示图片使用
+		    */
+		    function showImgssmallImage(imgs,inputName) {
+		    	//var swfu = $.swfupload.getInstance('#ms__uploadPic_'+inputName);
+		        //var stats = swfu.getStats();
+		    	$(".msUploadImgs").children().remove();
+		    	  if (imgs) {
+		    	  	 var _imgs = imgs.split("\|");
+		    	    for (i=0;i<_imgs.length;i++) {
+		    	    	  if (_imgs[i]!="") {
+								var imgLi = '<li id="SWFUpload_9_'+i+'">';
+									imgLi+='<div class="displayimg">';
+													imgLi+='<img src="http://127.0.0.1:8080/'+_imgs[i]+'">';
+									imgLi+='</div>';
+									imgLi+='<span class="front-cover" onclick="removePreviewsmallImage(this,\''+_imgs[i]+'\'+'|')"><a class="btn btn-xs red tooltips " data-original-title="点击删除图片"><i class="glyphicon glyphicon-trash"></i></a>';
+									imgLi+='</span>';
+								imgLi+='</li>';
+								$(".msUploadImgs").append(imgLi);;
+								//stats.successful_uploads++;
+								//swfu.setStats(stats);
+							}
+						}
+				    }
+		    }			
+			</script>
+
+		</div>
+	</div>
+
+<!-- ################################商品属性 start -->
+<style>
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+* html .clearfix{height:1%;}
+*{padding: 0;margin: 0;font-size: 14px;}
+.list-filter table{border-collapse:collapse;border-spacing:0;vertical-align: top;border: 1px solid #ddd;}
+.list-filter table td{border: 1px solid #ddd;}
+.list-filter li{list-style:none;}
+.list-filter{font-size: 14px;}
+.list-filter h2{font-weight: bold;padding: 10px;}
+.filter dl{float: left;border: 1px solid #ddd;margin-right: 10px;}
+.filter dl dt{background: #eee;padding: 3px 10px;}
+.filter dl ul{height: 120px;width: 200px;overflow-y: auto;}
+.filter input{vertical-align: middle;}
+.filter label{display: block;padding-left: 10px;padding-top: 5px;padding-bottom: 5px;border-bottom: 1px solid #eee;}
+.filter label:hover{background: #f2f2f2;cursor: pointer;}
+.res-table{width: 627px;}
+.res-table table{width: 100%;}
+.res-table table th{border: 1px solid #ddd;background: #eee;padding: 5px 10px;text-align: left;}
+.res-table table td{padding:5px 10px;animation: font 3s;}
+@keyframes font {
+    0%{background: #FFFACB;}
+    100%{background: #fff;}
+}
+</style>
+<div class="form-group mf-form-group">
+	<label class="col-sm-2 control-label ">产品属性</label>
+	<div class="ms-form-control ms-from-group-input col-sm-9">
+		<div class="list-filter clearfix" id="appCtrl">
+            <div class="clearfix filter">
+                <dl>
+                    <dt>保障额度</dt>
+                    <dd>
+                        <ul>
+                            <li v-for="el in coverageOptions">
+                                <label>
+                                    <input type="checkbox" v-model="coverage" :value="el.id"/>
+                                    {{el.name}}
+                                </label>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>保障期限</dt>
+                    <dd>
+                       <ul>
+                            <li v-for="el in periodOptions">
+                                <label>
+                                    <input type="checkbox" v-model="period" :value="el.id"/>
+                                    {{el.name}}
+                                </label>
+                            </li>
+                        </ul> 
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>保障年龄</dt>
+                    <dd>
+                        <ul>
+                            <li v-for="el in ageOptions">
+                                <label>
+                                    <input type="checkbox" v-model="age" :value="el.id"/>
+                                    {{el.name}}
+                                </label>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <!-- <h2>属性组合：</h2> -->
+            <div class="res-table" style="margin-top: 10px">
+                <table style="margin-bottom: 0">
+                    <tr>
+                        <th>保障额度</th>
+                        <th>保障期限</th>
+                        <th>保障年龄</th>
+                        <th>产品价格</th>
+                    </tr>
+                    <tr v-for="el in productTable">
+                        <td>{{el.coverageName}}</td>
+                        <td>{{el.periodName}}</td>
+                        <td>{{el.ageName}}</td>
+                        <td>
+                            <input class="form-control" @keyup="priceChange" v-model="el.price" placeholder="请输入价格">
+                        </td>
+                    </tr>
+                </table>          
+            </div>
+        </div>
+	</div>
+</div>
+<!-- ################################商品属性 end -->
+
+<!-- ############################# 商品描述 start -->
+<div class="form-group mf-form-group">
+	<label class="col-sm-2 control-label ">商品描述</label>
+	  
+	  <div class="ms-form-control ms-from-group-input col-sm-9 has-feedback">
+	  	<ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active"><a href="#tabIndex1" aria-controls="tabIndex1" role="tab" data-toggle="tab">产品描述</a></li>
+		    <li role="presentation"><a href="#tabIndex2" aria-controls="tabIndex2" role="tab" data-toggle="tab">购买须知</a></li>
+		    <li role="presentation"><a href="#tabIndex3" aria-controls="tabIndex3" role="tab" data-toggle="tab">常见问题</a></li>
+		  </ul>
+		  <div class="tab-content" style="margin-top: 10px">
+		    <div role="tabpanel" class="tab-pane active" id="tabIndex1">
+				<script type="text/plain" id="editor_synopsis" name="synopsis" style="width:100%;height:180px">请输入产品详情</script>
+				<script type="text/javascript">
+				 
+					//实例化编辑器
+					//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+					//  var ue = UE.getEditor('editor_synopsis');
+			       var URL = window.UEDITOR_HOME_URL || "http://test.51dfs.cn/static/plugins/ueditor/1.4.3.1/";
+			       var editorOpt = {
+			       		imageScaleEnabled :true,
+			       		// 服务器统一请求接口路径
+			       		serverUrl: URL + "jsp/msController.jsp?jsonConfig=%7BvideoUrlPrefix:'',fileUrlPrefix:'',imageUrlPrefix:'',imagePathFormat:'/upload//editor/%7Btime%7D',filePathFormat:'/upload//editor/%7Btime%7D',videoPathFormat:'/upload//editor/%7Btime%7D'%7D", 
+						// autoHeightEnabled: true,
+						autoFloatEnabled: false,
+						// scaleEnabled: true,
+			        	compressSide:0,
+			        	maxImageSideLength:2000,
+						maximumWords: 80000
+					};
+				   var ue = UE.getEditor('editor_synopsis', editorOpt);
+					//重新设置编辑器的style
+					ue.ready(function () {
+			        	$(".edui-editor-bottomContainer").height(30);
+			   	    });   
+			   	                                                       
+				</script>
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="tabIndex2">
+		    	<script type="text/plain" id="editor_synopsis2" name="synopsis" style="width:100%;height:180px">请输入购买须知</script>
+		    	<script>
+		    		var ue2 = UE.getEditor('editor_synopsis2', editorOpt);
+		    	</script>
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="tabIndex3">
+				<script type="text/plain" id="editor_synopsis3" name="synopsis" style="width:100%;height:180px">请输入常见问题</script>
+		    	<script>
+		    		var ue3 = UE.getEditor('editor_synopsis3', editorOpt);
+		    	</script>
+		    </div>
+		  </div>
+	  </div>
+</div>
+			
+<!-- ############################# 商品描述 end -->
+
+        
+<script>
+	$(function() {
+				var id = "articleForm";
+				
+				$('#'+id).fadeIn("slow");
+				$('#'+id).bootstrapValidator({
+				        feedbackIcons: {
+				            valid: 'glyphicon glyphicon-ok',
+				            invalid: 'glyphicon glyphicon-remove',
+				            validating: 'glyphicon glyphicon-refresh'
+				        }
+						
+				});	
+				
+				//$("#articleForm .form-group>div.radio").siblings("i.form-control-feedback").clone().prependTo($("#articleForm .form-group>div.radio"));
+				//$("#articleForm .form-group>div.radio").siblings("i.form-control-feedback").remove();
+	})
+</script>
+</form>
+	   		
+	    </div>
+		   			<div class='notifications ms-notifications top-right'></div>
+		   		</div>
+		</div>
+		
+	</body>
+</html>
+<script>
+
+	$(function(){
+		//默认选中
+	});
+	
+	//选择栏目后查询自定义模型
+function clickZtreeId(event,treeId,treeNode){
+	if(treeNode.columnType == 2){
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'不能选择单篇栏目' }
+						 }).show();	
+		return false;
+	}
+	if(treeNode.isParent==true){
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'不能选择父级栏目' }
+						 }).show();	
+		return false;
+	}
+} 
+
+
+    var url = "/ms/goods/insurance/save.do";
+    if($("input[name = 'insId']").val() > 0){
+        url = "/ms/goods/insurance/update.do";
+        $(".btn-success").text("更新");
+    }
+    //编辑按钮onclick
+    function save() {
+        $("#articleForm").data("bootstrapValidator").validate();
+            var isValid = $("#articleForm").data("bootstrapValidator").isValid();
+            if(!isValid) {
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'warning',
+						    message: { text:'数据提交失败，请检查数据格式！' }
+						 }).show();	
+                return;
+        }
+        var btnWord =$(".btn-success").text();
+        $(".btn-success").text(btnWord+"中...");
+        $(".btn-success").prop("disabled",true);
+        debugger;
+        $.ajax({
+            type:"post",
+            dataType:"json",
+            data:$("form[name = 'articleForm']").serialize(),
+            url:url,
+            success: function(status) {
+            	debugger;
+                if(status.result == true) { 
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'success',
+						    message: { text:'保存或更新成功' }
+						 }).show();	
+                    location.href = "/ms/goods/insurance/main.do?insType=0";
+                }
+                else{
+			    		 $('.ms-notifications').offset({top:43}).notify({
+			    		    type:'fail',
+						    message: { text:'保存或更新失败！值不合规则' }
+						 }).show();	
+                    location.href= "/ms/goods/insurance/main.do?insType=0";
+                }
+            }
+        })
+    }    
+</script>
+
+<script>
+
+    // 保障期限
+    var coverageOptions = [{id:1001,name:'10万以下'},{id:1002,name:'20万'},{id:1003,name:'101万以下'},{id:1004,name:'202万'},{id:1005,name:'103万以下'},{id:1007,name:'2220万'}];
+    var periodOptions = [{id:2001,name:'一年'},{id:2002,name:'二年'},{id:2003,name:'五年'}];
+    // 年龄范围
+    var ageOptions = [{id:3001,name:'1-18岁'},{id:3002,name:'19-40岁'},{id:3003,name:'40-59岁'}];
+
+
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+            return {
+                // 保障额度
+                coverage:[],
+                coverageOptions:coverageOptions,
+                // 保障期限
+                period:[],
+                periodOptions:periodOptions,
+                // 年龄范围
+                age:[],
+                ageOptions:ageOptions,
+
+                oldProductTable:[]
+
+            }
+        },
+
+        computed: {
+            coverageSelected: function(){
+                for(var i = 0, res = []; i < this.coverage.length; i++){
+                    for(var j = 0; j < this.coverageOptions.length; j++)
+                        if(this.coverage[i] == this.coverageOptions[j].id)
+                            res.push(this.coverageOptions[j])
+                }
+                return res||[];
+            },
+
+            periodSelected: function(){
+                for(var i = 0, res = []; i < this.period.length; i++){
+                    for(var j = 0; j < this.periodOptions.length; j++)
+                        if(this.period[i] == this.periodOptions[j].id)
+                            res.push(this.periodOptions[j])
+                }
+                return res||[];
+            },
+
+            ageSelected: function(){
+                for(var i = 0, res = []; i < this.age.length; i++){
+                    for(var j = 0; j < this.ageOptions.length; j++)
+                        if(this.age[i] == this.ageOptions[j].id)
+                            res.push(this.ageOptions[j])
+                }
+                return res||[];
+            },
+
+            //树形JSON结果
+            productJSON: function(){
+                var json = [], that = this;
+                    this.coverage.forEach(function(el, index){
+                        el = that.coverageOptions.filter(function(item){
+                            return el == item.id;
+                        })[0];
+                        el.children=[];
+                        that.period.forEach(function(_el, _index){
+                            _el = that.periodOptions.filter(function(item){
+                                return _el == item.id;
+                            })[0];
+                                el.children[_index] = _el;
+                                _el.children=[];
+                                that.age.forEach(function(__el, __index){
+                                    __el = that.ageOptions.filter(function(item){
+                                        return __el == item.id;
+                                    })[0];
+                                    __el.price = '';
+                                    _el.children[__index] = __el;
+                                })
+                        })
+                        json.push(el)
+                    })
+                    return json;
+            },
+            //结果表格数据
+            productTable: function(){
+                var table = [], that = this, oldTable = this.oldProductTable;
+
+                this.productJSON.forEach(function(el){
+                    el.children&&el.children.forEach(function(_el){
+                        _el.children&&_el.children.forEach(function(__el){
+                            var cout = oldTable.filter(function(p){
+                                return p.coverageId == el.id&& p.coverageName ==el.name&& p.periodId == _el.id&& p.periodName == _el.name&& p.ageId == __el.id&& p.ageName == __el.name
+                                })
+                            cout = cout[0] || {};
+                            table.push({
+                                coverageId: el.id,
+                                coverageName:el.name,
+                                periodId: _el.id,
+                                periodName: _el.name,
+                                ageId: __el.id,
+                                ageName: __el.name,
+                                price: cout.price || ''
+                            })    
+                        })                                
+                    })                        
+                })
+                return table;
+            }
+
+        },
+
+        methods:{
+            checkboxChange: function(){},
+
+            priceChange: function(){
+                this.oldProductTable = this.productTable;
+                // sessionStorage.setItem('productTable', JSON.stringify(this.productTable))
+            },
+
+            getProductTableString: function(){
+                var noPrice = this.productTable.filter(function(el){
+                    return ''===el.price
+                })
+                if(noPrice.length){
+                    alert('还有产品价格未输入')
+                    return false;
+                }
+
+                return JSON.stringify(this.productTable)
+            }
+        }
+    })
+</script>
