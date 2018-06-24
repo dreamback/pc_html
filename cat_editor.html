@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<style>
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+* html .clearfix{height:1%;}
+*{padding: 0;margin: 0;font-size: 14px;}
+.list-filter table{border-collapse:collapse;border-spacing:0;vertical-align: top;border: 1px solid #ddd;}
+.list-filter table td{border: 1px solid #ddd;}
+.list-filter li{list-style:none;}
+.list-filter{font-size: 14px;}
+.list-filter h2{font-weight: bold;padding: 10px;}
+.filter dl{float: left;border: 1px solid #ddd;margin-right: 10px;}
+.filter dl dt{background: #eee;padding: 3px 10px;}
+.filter dl ul{height: 120px;width: 200px;overflow-y: auto;}
+.filter input{vertical-align: middle;}
+.filter label{display: block;padding-left: 10px;padding-top: 5px;padding-bottom: 5px;border-bottom: 1px solid #eee;}
+.filter label:hover{background: #f2f2f2;cursor: pointer;}
+.res-table{width: 627px;}
+.res-table table{width: 100%;}
+.res-table table th{border: 1px solid #ddd;background: #eee;padding: 5px 10px;text-align: left;}
+.res-table table td{padding:5px 10px;animation: font 3s;}
+@keyframes font {
+    0%{background: #FFFACB;}
+    100%{background: #fff;}
+}
+</style>
+<body>
+
+    <div id="appCtrl">
+        <div class="container list-filter clearfix">
+            <h2>产品属性：</h2>
+            <div class="clearfix filter">
+                <dl>
+                    <dt>保障额度</dt>
+                    <dd>
+                        <ul>
+                            <li v-for="el in coverageOptions">
+                                <label>
+                                    <input type="checkbox" v-model="coverage" :value="el.id"/>
+                                    {{el.name}}
+                                </label>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>保障期限</dt>
+                    <dd>
+                       <ul>
+                            <li v-for="el in periodOptions">
+                                <label>
+                                    <input type="checkbox" v-model="period" :value="el.id"/>
+                                    {{el.name}}
+                                </label>
+                            </li>
+                        </ul> 
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>保障年龄</dt>
+                    <dd>
+                        <ul>
+                            <li v-for="el in ageOptions">
+                                <label>
+                                    <input type="checkbox" v-model="age" :value="el.id"/>
+                                    {{el.name}}
+                                </label>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <h2>属性组合：</h2>
+            <div class="res-table">
+                <table>
+                    <tr>
+                        <th>保障额度</th>
+                        <th>保障期限</th>
+                        <th>保障年龄</th>
+                        <th>产品价格</th>
+                    </tr>
+                    <tr v-for="el in productTable">
+                        <td>{{el.coverageName}}</td>
+                        <td>{{el.periodName}}</td>
+                        <td>{{el.ageName}}</td>
+                        <td>
+                            <input @keyup="priceChange" v-model="el.price" placeholder="请输入价格">
+                        </td>
+                    </tr>
+                </table>          
+            </div>
+            
+        </div>
+        <br />
+        <br />
+        <br />
+        <button onclick="alert(vm.getProductTableString())">获取属性组合的，表格JSON字符串，可自己传给后台</button>
+    </div>
+
+<script>
+
+    // 保障期限
+    var coverageOptions = [{id:1001,name:'10万以下'},{id:1002,name:'20万'},{id:1003,name:'101万以下'},{id:1004,name:'202万'},{id:1005,name:'103万以下'},{id:1007,name:'2220万'}];
+    var periodOptions = [{id:2001,name:'一年'},{id:2002,name:'二年'},{id:2003,name:'五年'}];
+    // 年龄范围
+    var ageOptions = [{id:3001,name:'1-18岁'},{id:3002,name:'19-40岁'},{id:3003,name:'40-59岁'}];
+
+
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+            return {
+                // 保障额度
+                coverage:[],
+                coverageOptions:coverageOptions,
+                // 保障期限
+                period:[],
+                periodOptions:periodOptions,
+                // 年龄范围
+                age:[],
+                ageOptions:ageOptions,
+
+                oldProductTable:[]
+
+            }
+        },
+
+        computed: {
+            coverageSelected: function(){
+                for(var i = 0, res = []; i < this.coverage.length; i++){
+                    for(var j = 0; j < this.coverageOptions.length; j++)
+                        if(this.coverage[i] == this.coverageOptions[j].id)
+                            res.push(this.coverageOptions[j])
+                }
+                return res||[];
+            },
+
+            periodSelected: function(){
+                for(var i = 0, res = []; i < this.period.length; i++){
+                    for(var j = 0; j < this.periodOptions.length; j++)
+                        if(this.period[i] == this.periodOptions[j].id)
+                            res.push(this.periodOptions[j])
+                }
+                return res||[];
+            },
+
+            ageSelected: function(){
+                for(var i = 0, res = []; i < this.age.length; i++){
+                    for(var j = 0; j < this.ageOptions.length; j++)
+                        if(this.age[i] == this.ageOptions[j].id)
+                            res.push(this.ageOptions[j])
+                }
+                return res||[];
+            },
+
+            //树形JSON结果
+            productJSON: function(){
+                var json = [], that = this;
+                    this.coverage.forEach(function(el, index){
+                        el = that.coverageOptions.filter(function(item){
+                            return el == item.id;
+                        })[0];
+                        el.children=[];
+                        that.period.forEach(function(_el, _index){
+                            _el = that.periodOptions.filter(function(item){
+                                return _el == item.id;
+                            })[0];
+                                el.children[_index] = _el;
+                                _el.children=[];
+                                that.age.forEach(function(__el, __index){
+                                    __el = that.ageOptions.filter(function(item){
+                                        return __el == item.id;
+                                    })[0];
+                                    __el.price = '';
+                                    _el.children[__index] = __el;
+                                })
+                        })
+                        json.push(el)
+                    })
+                    return json;
+            },
+            //结果表格数据
+            productTable: function(){
+                var table = [], that = this, oldTable = this.oldProductTable;
+
+                this.productJSON.forEach(function(el){
+                    el.children&&el.children.forEach(function(_el){
+                        _el.children&&_el.children.forEach(function(__el){
+                            var cout = oldTable.filter(function(p){
+                                return p.coverageId == el.id&& p.coverageName ==el.name&& p.periodId == _el.id&& p.periodName == _el.name&& p.ageId == __el.id&& p.ageName == __el.name
+                                })
+                            cout = cout[0] || {};
+                            table.push({
+                                coverageId: el.id,
+                                coverageName:el.name,
+                                periodId: _el.id,
+                                periodName: _el.name,
+                                ageId: __el.id,
+                                ageName: __el.name,
+                                price: cout.price || ''
+                            })    
+                        })                                
+                    })                        
+                })
+                return table;
+            }
+
+        },
+
+        methods:{
+            checkboxChange: function(){},
+
+            priceChange: function(){
+                this.oldProductTable = this.productTable;
+                // sessionStorage.setItem('productTable', JSON.stringify(this.productTable))
+            },
+
+            getProductTableString: function(){
+                var noPrice = this.productTable.filter(function(el){
+                    return ''===el.price
+                })
+                if(noPrice.length){
+                    alert('还有产品价格未输入')
+                    return false;
+                }
+
+                return JSON.stringify(this.productTable)
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

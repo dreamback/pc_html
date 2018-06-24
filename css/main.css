@@ -2,11 +2,13 @@
 .list-filter{background: #fff;padding: 25px 0;margin-top: 20px;}
 .list-filter dt,
 .list-filter dd{float: left;}
-.list-filter dt{width: 6em;color: #999}
+.list-filter dt{width: 6em;color: #999;position: relative;margin-left: -6em;}
 .list-filter dd{width: 7em;white-space: nowrap;overflow: hidden;}
-.list-filter dl{line-height: 40px;padding: 0 50px;}
+.list-filter dl{line-height: 40px;padding: 0 50px;padding-left: 130px;}
 .list-filter dl>dd:nth-child(2){width: 4em;}
 .list-filter dl .on{color: #D39D68}
+.list-filter dl dt, .list-filter dd{display: inline-block;text-indent: initial;}
+
 
 .products-list{margin-top: 20px;background: #fff;padding-top: 25px;padding-bottom: 25px;}
 .products-list-item {padding: 5px;border: 1px solid #EBEBEB;width: 1120px;margin: 0 auto 25px;transition: box-shadow .3s;}
