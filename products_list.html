@@ -52,53 +52,50 @@
 <div class="container list-filter clearfix">
     <dl class="clearfix">
         <dt>保险公司</dt>
-        <dd><a data-id="43211" href="">不限</a></dd>
-        <dd><a data-id="43212" href="">平安保险</a></dd>
-        <dd><a data-id="43215" href="">太平洋保险</a></dd>
-        <dd><a data-id="43217" href="">阳光保险</a></dd>
-        <dd><a data-id="43218" href="">安联保险</a></dd>
-        <dd><a data-id="43219" href="">泰康保险</a></dd>
-        <dd><a data-id="43224" href="">美亚保险</a></dd>
-        <dd><a data-id="43234" href="">人保寿险</a></dd>
-        <dd><a data-id="43254" href="">大众保险</a></dd>
-        <dd><a data-id="43264" href="">太平洋保险</a></dd>
-        <dd><a data-id="43304" href="">阳光保险</a></dd>
-        <dd><a data-id="43414" href="">安联保险</a></dd>
-        <dd><a data-id="43504" href="">泰康保险</a></dd>
-        <dd><a data-id="43254" href="">美亚保险</a></dd>
-        <dd><a data-id="43344" href="">人保寿险</a></dd>
-        <dd><a data-id="43334" href="">大众保险</a></dd>
+        <dd><a data-name="company" data-id="-1" href="javascript:;">不限</a></dd>
+        <dd><a data-name="company" data-id="43212" href="javascript:;">平安保险</a></dd>
+        <dd><a data-name="company" data-id="43215" href="javascript:;">太平洋保险</a></dd>
+        <dd><a data-name="company" data-id="43217" href="javascript:;">阳光保险</a></dd>
+        <dd><a data-name="company" data-id="43218" href="javascript:;">安联保险</a></dd>
+        <dd><a data-name="company" data-id="43219" href="javascript:;">泰康保险</a></dd>
+        <dd><a data-name="company" data-id="43224" href="javascript:;">美亚保险</a></dd>
+        <dd><a data-name="company" data-id="43234" href="javascript:;">人保寿险</a></dd>
+        <dd><a data-name="company" data-id="43254" href="javascript:;">大众保险</a></dd>
+        <dd><a data-name="company" data-id="43264" href="javascript:;">太平洋保险</a></dd>
+        <dd><a data-name="company" data-id="43304" href="javascript:;">阳光保险</a></dd>
+        <dd><a data-name="company" data-id="43414" href="javascript:;">安联保险</a></dd>
+        <dd><a data-name="company" data-id="43504" href="javascript:;">泰康保险</a></dd>
+        <dd><a data-name="company" data-id="43254" href="javascript:;">美亚保险</a></dd>
+        <dd><a data-name="company" data-id="43344" href="javascript:;">人保寿险</a></dd>
+        <dd><a data-name="company" data-id="43334" href="javascript:;">大众保险</a></dd>
     </dl>
     <dl class="clearfix">   
         <dt>保障期限</dt>
-        <dd><a data-id="235" href="">不限</a></dd>
-        <dd><a data-id="236" href="">7天</a></dd>
-        <dd><a data-id="237" href="">15天</a></dd>
-        <dd><a data-id="238" href="">30天</a></dd>
-        <dd><a data-id="239" href="">90天</a></dd>
-        <dd><a data-id="240" href="">180天</a></dd>
-        <dd><a data-id="244" href="">1年</a></dd>
+        <dd><a data-name="period" data-id="-1" href="javascript:;">不限</a></dd>
+        <dd><a data-name="period" data-id="236" href="javascript:;">7天</a></dd>
+        <dd><a data-name="period" data-id="237" href="javascript:;">15天</a></dd>
+        <dd><a data-name="period" data-id="238" href="javascript:;">30天</a></dd>
+        <dd><a data-name="period" data-id="239" href="javascript:;">90天</a></dd>
+        <dd><a data-name="period" data-id="240" href="javascript:;">180天</a></dd>
+        <dd><a data-name="period" data-id="244" href="javascript:;">1年</a></dd>
     </dl>
     <dl class="clearfix"> 
         <dt>保障人群</dt>
-        <dd><a class="on" href="">不限</a></dd>
-        <dd><a href="">成人</a></dd>
-        <dd><a href="">少儿</a></dd>
-        <dd><a href="">老人</a></dd>
+        <dd><a data-name="person" data-id="-1" href="javascript:;">不限</a></dd>
+        <dd><a data-name="person" data-id="3" href="javascript:;">成人</a></dd>
+        <dd><a data-name="person" data-id="4" href="javascript:;">少儿</a></dd>
+        <dd><a data-name="person" data-id="5" href="javascript:;">老人</a></dd>
     </dl>
     <dl class="clearfix"> 
         <dt>保障额度</dt>
-        <dd><a class="on" href="">不限</a></dd>
-        <dd><a href="">10万以下</a></dd>
-        <dd><a href="">10-50万</a></dd>
-        <dd><a href="">50万-100万</a></dd>
+        <dd><a data-name="coverage" data-id="11" href="javascript:;">不限</a></dd>
+        <dd><a data-name="coverage" data-id="22" href="javascript:;">10万以下</a></dd>
+        <dd><a data-name="coverage" data-id="33" href="javascript:;">10-50万</a></dd>
+        <dd><a data-name="coverage" data-id="44" href="javascript:;">50万-100万</a></dd>
     </dl>
 </div>
 
-<script>
-  document.querySelector('a[data-id="43334"]').className = 'on'
-  document.querySelector('a[data-id="244"]').className = 'on'
-</script>
+
 
 <div class="products-list container" id="listCtrl">
    <div class="products-list-item clearfix">
@@ -448,6 +445,64 @@
             }
           }
         })
+    </script>
+
+    <script>
+  var parseURL = function(url) {
+    var a = document.createElement('a');
+    a.href = url || window.location.href;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':', ''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (function() {
+            var ret = {},
+                seg = a.search.replace(/^\?/, '').split('&'),
+                len = seg.length,
+                i = 0,
+                s;
+            for (; i < len; i++) {
+                if (!seg[i]) {
+                    continue;
+                }
+                s = seg[i].split('=');
+                ret[s[0]] = s[1];
+            }
+            return ret;
+        })(),
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+        hash: a.hash.replace('#', ''),
+        path: a.pathname.replace(/^([^\/])/, '/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+        segments: a.pathname.replace(/^\//, '').split('/')
+    };
+};
+      (function(){
+        $('.list-filter dl').each(function(){
+          $(this).find('dd a').eq(0).addClass('on')
+        })
+
+        var urlParams = parseURL().params;
+
+        for(var key in urlParams){
+          var target = $("a[data-name='"+key+"'][data-id='"+urlParams[key]+"']");
+          target.parents('dl').find('a').removeClass('on');
+          target.addClass('on');
+        }
+
+        $('.list-filter').on('click', 'a', function(){
+          $(this).parents('dl').find('a').removeClass('on');
+          $(this).addClass('on')
+          var params = {},
+              selected = $('.list-filter a.on');
+              selected.each(function(){
+                params[$(this).data('name')] = $(this).data('id');
+              })
+              location.href = './products_list.html?'+$.param(params)
+        })
+      })();
     </script>
 </body>
 </html>

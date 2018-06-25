@@ -39,16 +39,16 @@
             <div class="clearfix filter">
                 <dl v-for="el in categolate">
                     <dt>{{el.label}}
-                        <label class="right"> 
+                        <!-- <label class="right"> 
                             <input type="checkbox" v-model="el.check"/> 
                             不选
-                        </label>
+                        </label> -->
                     </dt>
                     <dd>
                         <ul>
                             <li v-for="item in el.list">
                                 <label>
-                                    <input type="checkbox" v-model="el.selected" :value="item.id"/>
+                                    <input @change="getCombination" type="checkbox" v-model="el.selected" :value="item.id"/>
                                     {{item.name}}
                                 </label>
                             </li>
@@ -80,6 +80,13 @@
                 <table>
                     <tr>
                         <th v-for="el in categolate" v-if="el.selected.length">{{el.label}}</th>
+                        <th>价格</th>
+                    </tr>
+                    <tr v-for="item in tableData">
+                        <td v-for="el in item.list">{{el.name}}</td>
+                        <td>
+                            <input v-model="item.price" placeholder="请输入价格">
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -96,18 +103,22 @@
     var categolate = [
         {
             label:'保障额度',
+            type:'coverage',
             list:[{id:1001,name:'10万以下'},{id:1002,name:'20万'},{id:1003,name:'101万以下'},{id:1004,name:'202万'},{id:1005,name:'103万以下'},{id:1007,name:'2220万'}]
         },
         {
             label:'保障期限',
+            type:'period',
             list: [{id:2001,name:'一年'},{id:2002,name:'二年'},{id:2003,name:'五年'}],
         },
         {
             label:'年龄范围',
+            type:'age',
             list: [{id:3001,name:'1-18岁'},{id:3002,name:'19-40岁'},{id:3003,name:'40-59岁'}]
         },
         {
             label:'其它',
+            type:'other',
             list:[{id:1,name:"土豪金版"},{id:'2',name:"乞丐版"}]
         }
     ];
@@ -125,21 +136,69 @@
         data: function(){
             return {
                 categolate:categolate,
+                combination:[]
             }
         },
 
         computed: {
             categolateRes: function(){
+                var res = [], item = {}, selectedObjArr=[], that = this;
+                this.categolate.forEach(function(_categolate, index){
+                    if(!_categolate.check&&_categolate.selected.length){
+                        _categolate.selected.forEach(function(_selected, _selected_index){
+                            item[_categolate.type] = that.getItem(_categolate.list, _selected);
+                        })
+                        res.push(item)
+                    }
+                });
+                return res;
+            },
 
+            tableData: function(){
+                var res = [], item = {};
+                this.combination.forEach(function(el,index){
+                    item = {};
+                    item.price = '';
+                    item.list = el;
+                    res.push(item);
+                });
+                return res;
             }
         },
 
         methods:{
             checkboxChange: function(){},
 
-            priceChange: function(){
-                this.oldProductTable = this.productTable;
-                // sessionStorage.setItem('productTable', JSON.stringify(this.productTable))
+            getCombination: function(){
+                this.combination =  this.calCombination(this.getSelectedObj());
+            },
+
+            calCombination:function(arr) {
+                var count = arr.length - 1; //数组长度(从0开始)
+                var tmp = [];
+                var totalArr = [];// 总数组
+
+                return doCombinationCallback(arr, 0);//从第一个开始
+                //js 没有静态数据，为了避免和外部数据混淆，需要使用闭包的形式
+                function doCombinationCallback(arr, curr_index) {
+                    for(val of arr[curr_index]) {
+                        tmp[curr_index] = val;//以curr_index为索引，加入数组
+                        //当前循环下标小于数组总长度，则需要继续调用方法
+                        if(curr_index < count) {
+                            doCombinationCallback(arr, curr_index + 1);//继续调用
+                        }else{
+                            totalArr.push(tmp);//(直接给push进去，push进去的不是值，而是值的地址)
+                        }
+
+                        //js  对象都是 地址引用(引用关系)，每次都需要重新初始化，否则 totalArr的数据都会是最后一次的 tmp 数据；
+                        oldTmp = tmp;
+                        tmp = [];
+                        for(index of oldTmp) {
+                            tmp.push(index);
+                        }
+                    }
+                    return totalArr;
+                }
             },
 
             getProductTableString: function(){
@@ -152,6 +211,29 @@
                 }
 
                 return JSON.stringify(this.productTable)
+            },
+
+            getSelectedObj: function(){
+                var arr = [], itemArr=[], that = this, obj;
+                this.categolate.forEach(function(el){
+                    itemArr = [];
+                    el.selected.forEach(function(_el){
+                        obj = that.getItem(el.list, _el)
+                        obj.type = el.type;
+                        itemArr.push( obj );
+                    });
+                    itemArr.length&&arr.push(itemArr)
+                })
+                return arr;
+            },
+
+            getItem: function(arr, id){
+
+                for(var i = 0, len = arr.length; i<len; i++){
+                    if(arr[i].id==id)
+                        return arr[i]
+                }
+                return [];
             }
         }
     })
