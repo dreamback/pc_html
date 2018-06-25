@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<style>
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+* html .clearfix{height:1%;}
+*{padding: 0;margin: 0;font-size: 14px;}
+.list-filter table{border-collapse:collapse;border-spacing:0;vertical-align: top;border: 1px solid #ddd;}
+.list-filter table td{border: 1px solid #ddd;}
+.list-filter .right{float: right;}
+.list-filter li{list-style:none;}
+.list-filter{font-size: 14px;}
+.list-filter h2{font-weight: bold;padding: 10px;}
+.filter dl{float: left;border: 1px solid #ddd;margin-right: 10px;}
+.filter dl dt{background: #eee;padding: 3px 10px;}
+.filter dl ul{height: 120px;width: 200px;overflow-y: auto;}
+.filter input{vertical-align: middle;}
+.filter li label{display: block;padding-left: 10px;padding-top: 5px;padding-bottom: 5px;border-bottom: 1px solid #eee;}
+.filter label:hover{background: #f2f2f2;cursor: pointer;}
+.res-table{width: 627px;}
+.res-table table{width: 100%;}
+.res-table table th{border: 1px solid #ddd;background: #eee;padding: 5px 10px;text-align: left;}
+.res-table table td{padding:5px 10px;animation: font 3s;}
+@keyframes font {
+    0%{background: #FFFACB;}
+    100%{background: #fff;}
+}
+</style>
+<body>
+
+    <div id="appCtrl">
+        <div class="container list-filter clearfix">
+            <h2>产品属性：</h2>
+            <div class="clearfix filter">
+                <dl v-for="el in categolate">
+                    <dt>{{el.label}}
+                        <label class="right"> 
+                            <input type="checkbox" v-model="el.check"/> 
+                            不选
+                        </label>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li v-for="item in el.list">
+                                <label>
+                                    <input type="checkbox" v-model="el.selected" :value="item.id"/>
+                                    {{item.name}}
+                                </label>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <h2>属性组合：</h2>
+<!--             <div class="res-table">
+                <table>
+                    <tr>
+                        <th>保障额度</th>
+                        <th>保障期限</th>
+                        <th>保障年龄</th>
+                        <th>产品价格</th>
+                    </tr>
+                    <tr v-for="el in productTable">
+                        <td>{{el.coverageName}}</td>
+                        <td>{{el.periodName}}</td>
+                        <td>{{el.ageName}}</td>
+                        <td>
+                            <input @keyup="priceChange" v-model="el.price" placeholder="请输入价格">
+                        </td>
+                    </tr>
+                </table>          
+            </div> -->
+
+            <div class="res-table">
+                <table>
+                    <tr>
+                        <th v-for="el in categolate" v-if="el.selected.length">{{el.label}}</th>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+        <br />
+        <br />
+        <br />
+        <button onclick="alert(vm.getProductTableString())">获取属性组合的，表格JSON字符串，可自己传给后台</button>
+    </div>
+
+<script>
+
+    var categolate = [
+        {
+            label:'保障额度',
+            list:[{id:1001,name:'10万以下'},{id:1002,name:'20万'},{id:1003,name:'101万以下'},{id:1004,name:'202万'},{id:1005,name:'103万以下'},{id:1007,name:'2220万'}]
+        },
+        {
+            label:'保障期限',
+            list: [{id:2001,name:'一年'},{id:2002,name:'二年'},{id:2003,name:'五年'}],
+        },
+        {
+            label:'年龄范围',
+            list: [{id:3001,name:'1-18岁'},{id:3002,name:'19-40岁'},{id:3003,name:'40-59岁'}]
+        },
+        {
+            label:'其它',
+            list:[{id:1,name:"土豪金版"},{id:'2',name:"乞丐版"}]
+        }
+    ];
+
+    categolate.forEach(function(el,index){
+        categolate[index].selected = [];
+        categolate[index].check = false;
+        // categolate[index].list = [{id:0,name:'不选'}].concat(categolate[index].list)
+    });
+
+
+    var vm = new Vue({
+        el: '#appCtrl',
+
+        data: function(){
+            return {
+                categolate:categolate,
+            }
+        },
+
+        computed: {
+            categolateRes: function(){
+
+            }
+        },
+
+        methods:{
+            checkboxChange: function(){},
+
+            priceChange: function(){
+                this.oldProductTable = this.productTable;
+                // sessionStorage.setItem('productTable', JSON.stringify(this.productTable))
+            },
+
+            getProductTableString: function(){
+                var noPrice = this.productTable.filter(function(el){
+                    return ''===el.price
+                })
+                if(noPrice.length){
+                    alert('还有产品价格未输入')
+                    return false;
+                }
+
+                return JSON.stringify(this.productTable)
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

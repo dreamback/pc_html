@@ -107,18 +107,19 @@
                     <div class="time cGray">2018-05-29 16:08:06</div>
                 </li>
             </ul>
-<!-- <div style="padding:20px">
+<div style="padding:20px">
 <el-pagination
   style="text-align: right;"
   :background="true"
   prev-text="上一页"
   next-text="下一页"
+  :current-page="curPage"
   layout="prev, pager, next"
   :page-size="pageSize"
   :total="total"
   @current-change="currentPage">
 </el-pagination>    
-</div> -->
+</div>
 <div class="el-pagination is-background" style="padding: 20px 28px; text-align: right;">
     <ul class="el-pager"> 
         <li><a href=" ">首页</a></li> 
@@ -225,13 +226,15 @@
           data:function(){
             return {
               pageSize: 10,
+              curPage: currentPage,
               total:50
             }
           },
           methods:{
             currentPage: function(current){
+                alert(current)
                 alert('http://www.baidu.com?pageIndex='+current)
-                location.href = 'http://www.baidu.com?pageIndex='+current
+                // location.href = 'http://www.baidu.com?pageIndex='+current
             }
           },
 

@@ -15,7 +15,7 @@
 .products-list-item:hover{box-shadow: 0 1px 8px rgba(0, 0, 0, .1),0 -1px 8px rgba(0, 0, 0, .1);}
 .products-list-item .img{width: 300px;height: 200px;float: left;}
 .product-list-item-desc{float: left;margin-left: 20px;width: 530px;position: relative;}
-.product-list-item-desc .min-logo{width: 93px;height: 39px;background: url('../images/logo_min.png');position: absolute;right: 10px;top: 10px;}
+.product-list-item-desc .min-logo{width: 93px;height: auto;position: absolute;right: 10px;top: 10px;}
 .product-list-item-desc h2{font-size: 24px;padding: 10px 0;}
 .product-list-item-desc table{width: 100%;}
 .product-list-item-desc table td{padding-bottom: 8px;}
