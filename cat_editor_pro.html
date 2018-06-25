@@ -22,7 +22,7 @@
 .filter input{vertical-align: middle;}
 .filter li label{display: block;padding-left: 10px;padding-top: 5px;padding-bottom: 5px;border-bottom: 1px solid #eee;}
 .filter label:hover{background: #f2f2f2;cursor: pointer;}
-.res-table{width: 627px;}
+.res-table{width: 827px;max-height: 300px;overflow-y: auto;border: 1px solid #ddd;}
 .res-table table{width: 100%;}
 .res-table table th{border: 1px solid #ddd;background: #eee;padding: 5px 10px;text-align: left;}
 .res-table table td{padding:5px 10px;animation: font 3s;}
@@ -39,10 +39,6 @@
             <div class="clearfix filter">
                 <dl v-for="el in categolate">
                     <dt>{{el.label}}
-                        <!-- <label class="right"> 
-                            <input type="checkbox" v-model="el.check"/> 
-                            不选
-                        </label> -->
                     </dt>
                     <dd>
                         <ul>
@@ -56,36 +52,19 @@
                     </dd>
                 </dl>
             </div>
-            <h2>属性组合：</h2>
-<!--             <div class="res-table">
-                <table>
-                    <tr>
-                        <th>保障额度</th>
-                        <th>保障期限</th>
-                        <th>保障年龄</th>
-                        <th>产品价格</th>
-                    </tr>
-                    <tr v-for="el in productTable">
-                        <td>{{el.coverageName}}</td>
-                        <td>{{el.periodName}}</td>
-                        <td>{{el.ageName}}</td>
-                        <td>
-                            <input @keyup="priceChange" v-model="el.price" placeholder="请输入价格">
-                        </td>
-                    </tr>
-                </table>          
-            </div> -->
-
+            <h2>属性排列组合：</h2>
             <div class="res-table">
                 <table>
                     <tr>
+                        <th>#</th>
                         <th v-for="el in categolate" v-if="el.selected.length">{{el.label}}</th>
                         <th>价格</th>
                     </tr>
-                    <tr v-for="item in tableData">
+                    <tr v-for="(item,index) in tableData">
+                        <td>{{index+1}}</td>
                         <td v-for="el in item.list">{{el.name}}</td>
                         <td>
-                            <input v-model="item.price" placeholder="请输入价格">
+                            <input @keyup="priceChange" v-model="item.price" placeholder="请输入价格">
                         </td>
                     </tr>
                 </table>
@@ -117,9 +96,13 @@
             list: [{id:3001,name:'1-18岁'},{id:3002,name:'19-40岁'},{id:3003,name:'40-59岁'}]
         },
         {
-            label:'其它',
+            label:'颜色',
             type:'other',
-            list:[{id:1,name:"土豪金版"},{id:'2',name:"乞丐版"}]
+            list:[{id:1,name:"土豪金版"},{id:'2',name:"乡村白"}]
+        },{
+            label:'颜色2',
+            type:'other',
+            list:[{id:1,name:"土豪金版2"},{id:'2',name:"乡村白2"}]
         }
     ];
 
@@ -136,7 +119,8 @@
         data: function(){
             return {
                 categolate:categolate,
-                combination:[]
+                combination:[],
+                oldTableData:[]
             }
         },
 
@@ -155,10 +139,14 @@
             },
 
             tableData: function(){
-                var res = [], item = {};
+                var res = [], item = {}, oldTableData = this.oldTableData;
                 this.combination.forEach(function(el,index){
                     item = {};
-                    item.price = '';
+                    var cout = oldTableData.filter(function(p){
+                        return p.price&&(JSON.stringify(p.list) == JSON.stringify(el))
+                        })
+                    cout = cout[0] || {};
+                    item.price = cout.price||'';
                     item.list = el;
                     res.push(item);
                 });
@@ -167,30 +155,30 @@
         },
 
         methods:{
-            checkboxChange: function(){},
+            priceChange: function(){
+                this.oldTableData = this.tableData;
+            },
 
             getCombination: function(){
                 this.combination =  this.calCombination(this.getSelectedObj());
             },
 
             calCombination:function(arr) {
-                var count = arr.length - 1; //数组长度(从0开始)
+                var count = arr.length - 1; 
                 var tmp = [];
                 var totalArr = [];// 总数组
 
-                return doCombinationCallback(arr, 0);//从第一个开始
-                //js 没有静态数据，为了避免和外部数据混淆，需要使用闭包的形式
+                return doCombinationCallback(arr, 0);
+                
                 function doCombinationCallback(arr, curr_index) {
                     for(val of arr[curr_index]) {
-                        tmp[curr_index] = val;//以curr_index为索引，加入数组
-                        //当前循环下标小于数组总长度，则需要继续调用方法
+                        tmp[curr_index] = val;
+                        
                         if(curr_index < count) {
-                            doCombinationCallback(arr, curr_index + 1);//继续调用
+                            doCombinationCallback(arr, curr_index + 1);
                         }else{
-                            totalArr.push(tmp);//(直接给push进去，push进去的不是值，而是值的地址)
+                            totalArr.push(tmp);
                         }
-
-                        //js  对象都是 地址引用(引用关系)，每次都需要重新初始化，否则 totalArr的数据都会是最后一次的 tmp 数据；
                         oldTmp = tmp;
                         tmp = [];
                         for(index of oldTmp) {

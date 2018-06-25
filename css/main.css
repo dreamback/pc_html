@@ -309,3 +309,5 @@ display: flex;position: relative;}
 .about-container .title{text-align: center;padding: 40px 0 20px;font-size: 24px;}
 .about-container ul li{line-height: 36px;}
 .about-container h2{padding: 20px 0 10px;font-size: 24px;}
+
+.tab-contents{margin: 0 50px}
