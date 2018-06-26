@@ -549,13 +549,31 @@
                 var $window = $(window),
                     stickyNav = $('#stickyNav'),
                     contents = $('.tab-contents'),
-                    len = contents.length-1;
+                    len = contents.length;
+                    var offsetTop = 80;
                 $window.on('scroll', function(){
                     if($window.scrollTop() > stickyNav.offset().top){
                         stickyNav.addClass('fixed');
                     }else{
                         stickyNav.removeClass('fixed')
                     }
+
+                    for(var i = 0; i < len; i++){
+                        var curRect = contents[i].getBoundingClientRect();
+                        if(Math.floor(curRect.top) <= offsetTop && Math.floor(curRect.bottom) > offsetTop) {
+                            stickyNav.find('li').removeClass('on').eq(i).addClass('on');
+                            break;
+                        }
+                    }
+
+                })
+
+                stickyNav.find('li').click(function(){
+                    var index = $(this).index();
+                    $('html,body').animate({
+                        scrollTop: contents.eq(index).offset().top-80
+                    }, 1000)
+                    
                 })
             }
         })
