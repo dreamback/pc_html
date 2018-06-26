@@ -484,7 +484,7 @@
             <div class="res-table">
                 <table>
                     <tr>
-                        <th>#</th>
+                        <th>{{tableData.length||0}}</th>
                         <th v-for="el in categolate" v-if="el.selected.length">{{el.label}}</th>
                         <th>价格</th>
                     </tr>
@@ -770,7 +770,7 @@ function clickZtreeId(event,treeId,treeNode){
             },
 
             getProductTableString: function(){
-                var noPrice = this.productTable.filter(function(el){
+                var noPrice = this.tableData.filter(function(el){
                     return ''===el.price
                 })
                 if(noPrice.length){
@@ -778,7 +778,7 @@ function clickZtreeId(event,treeId,treeNode){
                     return false;
                 }
 
-                return JSON.stringify(this.productTable)
+                return JSON.stringify(this.tableData)
             },
 
             getSelectedObj: function(){
