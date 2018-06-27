@@ -504,5 +504,14 @@
         })
       })();
     </script>
+    <script>
+      function getCatParamas(){
+            var selected = $('.list-filter a.on'), params={};
+              selected.each(function(){
+                params[$(this).data('name')] = $(this).data('id');
+              })
+              return $.param(params)
+      }
+    </script>
 </body>
 </html>

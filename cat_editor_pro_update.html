@@ -83,11 +83,13 @@
         {
             label:'保障额度',
             type:'coverage',
-            list:[{id:1001,name:'10万以下'},{id:1002,name:'20万'},{id:1003,name:'101万以下'},{id:1004,name:'202万'},{id:1005,name:'103万以下'},{id:1007,name:'2220万'}]
+            selected:[1001,1002],
+            list:[{id:1001,name:'10万以下',check:true},{id:1002,name:'20万'},{id:1003,name:'101万以下'},{id:1004,name:'202万'},{id:1005,name:'103万以下'},{id:1007,name:'2220万'}]
         },
         {
             label:'保障期限',
             type:'period',
+            selected:[2002],
             list: [{id:2001,name:'一年'},{id:2002,name:'二年'},{id:2003,name:'五年'}],
         },
         {
@@ -107,8 +109,8 @@
     ];
 
     categolate.forEach(function(el,index){
-        categolate[index].selected = [];
-        categolate[index].check = false;
+        categolate[index].selected = categolate[index].selected|| [];
+        categolate[index].check = categolate[index].check||false;
         // categolate[index].list = [{id:0,name:'不选'}].concat(categolate[index].list)
     });
 
@@ -120,7 +122,7 @@
             return {
                 categolate:categolate,
                 combination:[],
-                oldTableData:[]
+                oldTableData:[{"price":"200","list":[{"id":1001,"name":"10万以下","check":true,"type":"coverage"},{"id":2002,"name":"二年","type":"period"}]},{"price":"100","list":[{"id":1002,"name":"20万","type":"coverage"},{"id":2002,"name":"二年","type":"period"}]}]
             }
         },
 
@@ -223,6 +225,9 @@
                 }
                 return [];
             }
+        },
+        mounted: function(){
+            this.getCombination();
         }
     })
 </script>
