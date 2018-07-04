@@ -283,6 +283,8 @@
             </div>    
 </div>
 <div class="tab-contents">
+
+<div style="background:#eee"><p>p购买须知</p>
     <p>p购买须知</p>
     <p>p购买须知</p>
     <p>p购买须知</p>
@@ -315,7 +317,8 @@
     <p>p购买须知</p>
     <p>p购买须知</p>
     <p>p购买须知</p>
-    <p>p购买须知</p>
+    </div>
+
 </div>
 <div class="tab-contents">
     <p>p常见问题</p>
@@ -542,6 +545,11 @@
 
 
                     location.href = 'writing_policy.html?productId='+ this.product[this.amountIndex].period[this.periodIndex].age[this.ageIndex].id;
+                    
+                    vmodel.product[vmodel.amountIndex].id
+                    vmodel.product[vmodel.amountIndex].period[vmodel.periodIndex].id
+                    vmodel.product[vmodel.amountIndex].period[vmodel.periodIndex].age[vmodel.ageIndex].id
+
                 }
             },
 
@@ -572,7 +580,7 @@
                     var index = $(this).index();
                     $('html,body').animate({
                         scrollTop: contents.eq(index).offset().top-80
-                    }, 1000)
+                    }, 500)
                     
                 })
             }
